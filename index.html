@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jumma Mohammad Teli — MLOps Engineer & Senior Data Analyst. End-to-end MLOps systems, analytics, and production ML for UK ML/AI Engineer and Senior Data Analyst roles." />
+  <title>Jumma Mohammad Teli — MLOps Engineer & Senior Data Analyst</title>
+
+  <!-- No-flash theme: apply the saved/system theme BEFORE first paint. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('jt-theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Light is the polished default; only go dark on an explicit saved choice or system preference.
+        document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+      } catch (e) { /* keep the data-theme="light" already on <html> */ }
+    })();
+  </script>
+
+  <!-- Icons only (CDN). Everything else is self-contained. -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Font Awesome (icons). No SRI hash: a stale/mismatched integrity value
+       makes browsers silently reject the stylesheet and drop every icon. -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip link for keyboard/screen-reader users -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Sticky header ===== -->
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__brand" href="#top" aria-label="Jumma Mohammad Teli — home">
+        <span class="nav__brand-mark" aria-hidden="true">JT</span>
+        <span class="nav__brand-text">Jumma&nbsp;Teli</span>
+      </a>
+
+      <button
+        class="nav__toggle"
+        id="navToggle"
+        aria-expanded="false"
+        aria-controls="navMenu"
+        aria-label="Open menu"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#featured">Featured</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <!-- Download CV (nav). TODO: add assets/Jumma-Mohammad-Teli-CV.pdf -->
+          <a class="nav__cv btn btn--sm btn--primary" href="assets/Jumma-Mohammad-Teli-CV.pdf" download>
+            <i class="fa-solid fa-download" aria-hidden="true"></i> CV
+          </a>
+        </li>
+        <li>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Switch to dark mode"
+          >
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <div class="hero__intro reveal">
+          <p class="hero__eyebrow">MLOps Engineer &amp; Senior Data Analyst</p>
+          <h1 class="hero__title" id="hero-title">Jumma&nbsp;Mohammad&nbsp;Teli</h1>
+          <p class="hero__tagline">
+            Turning messy data into production-grade decisions — from SQL pipelines and
+            Power BI dashboards to FastAPI model serving, drift detection, and Kubernetes deployments.
+          </p>
+
+          <div class="hero__cta">
+            <!-- Download CV (hero, primary). TODO: add assets/Jumma-Mohammad-Teli-CV.pdf -->
+            <a class="btn btn--primary" href="assets/Jumma-Mohammad-Teli-CV.pdf" download>
+              <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
+            </a>
+            <a class="btn btn--outline" href="#featured">
+              <i class="fa-solid fa-diagram-project" aria-hidden="true"></i> View work
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/jumma786" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+            </a>
+          </div>
+
+          <!-- Stats banner -->
+          <dl class="stats" aria-label="At a glance">
+            <div class="stats__item">
+              <dt>Public repositories</dt><dd id="repoCount">91</dd>
+            </div>
+            <div class="stats__item">
+              <dt>MLOps tests passing</dt><dd>132+</dd>
+            </div>
+            <div class="stats__item">
+              <dt>Datasets</dt><dd>Real, throughout</dd>
+            </div>
+          </dl>
+          <p class="status-pill">
+            <span class="status-pill__dot" aria-hidden="true"></span>
+            Open to ML/AI Engineer &amp; Senior Data Analyst roles — UK
+          </p>
+        </div>
+
+        <div class="hero__media reveal">
+          <!--
+            Profile photo. TODO: add your professional photo at assets/profile.jpg
+            (a square image works best — it's displayed in a softly-rounded frame).
+            If the file is missing, the onerror handler shows a neutral "JT" placeholder.
+          -->
+          <img
+            class="hero__photo"
+            src="assets/profile.jpg"
+            alt="Portrait of Jumma Mohammad Teli, MLOps Engineer and Senior Data Analyst"
+            width="360" height="360" loading="eager" decoding="async"
+            onerror="this.onerror=null;this.classList.add('is-placeholder');this.src=&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Crect width='100%25' height='100%25' fill='%23e6e8ec'/%3E%3Ctext x='50%25' y='50%25' dy='.35em' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-weight='600' font-size='140' fill='%23a3adba'%3EJT%3C/text%3E%3C/svg%3E&quot;"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Profile</p>
+        <h2 class="section__title" id="about-title">About</h2>
+      </div>
+      <div class="about reveal">
+        <p class="about__lead">
+          Data professional with 9+ years of experience, now building end-to-end MLOps systems.
+          I bridge analytics and engineering — extracting insight with SQL and Power BI, then
+          shipping models into production with FastAPI, MLflow, Airflow, and Kubernetes. Along
+          the way I've improved reporting efficiency by 30%, cut manual processing by 40%, and
+          delivered insights that shaped strategic decisions.
+        </p>
+
+        <!-- Experience timeline -->
+        <h3 class="about__subtitle">Experience</h3>
+        <ol class="experience">
+          <li class="exp__item">
+            <div class="exp__head">
+              <span class="exp__role">Data Analyst · UBS</span>
+              <span class="exp__date">Oct 2024 – Present</span>
+            </div>
+            <span class="exp__meta">Contract · Remote — Financial services</span>
+            <ul class="exp__points">
+              <li>Develop and optimise 50+ SQL queries, views and stored procedures powering regulatory reporting and forecasting.</li>
+              <li>Build Power BI &amp; Tableau dashboards used by 20+ stakeholders across risk, compliance and finance.</li>
+              <li>Automate reporting and extraction workflows in SQL and Python, saving ~8 hours/week of manual effort.</li>
+            </ul>
+          </li>
+          <li class="exp__item">
+            <div class="exp__head">
+              <span class="exp__role">Data Analyst · IT Skills</span>
+              <span class="exp__date">Oct 2023 – Oct 2024</span>
+            </div>
+            <span class="exp__meta">London, UK</span>
+            <ul class="exp__points">
+              <li>Increased reporting efficiency by 30% with interactive Power BI dashboards for executive decision-making.</li>
+              <li>Automated ETL in Talend, cutting manual processing 40% and improving delivery timeliness 20%.</li>
+              <li>Optimised complex SQL for cleansing and extraction, ensuring 99%+ accuracy downstream.</li>
+            </ul>
+          </li>
+          <li class="exp__item">
+            <div class="exp__head">
+              <span class="exp__role">Data Analyst · Skyway Internet Services</span>
+              <span class="exp__date">Apr 2019 – Jul 2023</span>
+            </div>
+            <span class="exp__meta">Nagaur, India</span>
+            <ul class="exp__points">
+              <li>Built churn and demand forecasting models guiding retention and resource planning.</li>
+              <li>Maintained SQL pipelines processing 100K+ daily records for timely reporting.</li>
+              <li>Reduced ad-hoc reporting requests 35% via self-serve Power BI and Tableau dashboards.</li>
+            </ul>
+          </li>
+          <li class="exp__item">
+            <div class="exp__head">
+              <span class="exp__role">IT Technician · Border Security Force (BSF)</span>
+              <span class="exp__date">Apr 2016 – Jan 2019</span>
+            </div>
+            <span class="exp__meta">Delhi, India</span>
+            <ul class="exp__points">
+              <li>Operated secure communication systems and provided IT support; trained 30+ staff on new protocols.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <!-- Education + Certifications -->
+        <div class="about__grid about__grid--two">
+          <div class="about__card">
+            <h3>Education</h3>
+            <ul class="timeline">
+              <li>
+                <span class="timeline__role">MSc Computer Science (IoT &amp; Future Networks) — Queen Mary University of London</span>
+                <span class="timeline__date">Sep 2023 – Sep 2024</span>
+              </li>
+              <li>
+                <span class="timeline__role">BSc Information Technology — Sabarmati University, India</span>
+                <span class="timeline__date">Sep 2012 – Jun 2015</span>
+              </li>
+            </ul>
+          </div>
+          <div class="about__card">
+            <h3>Certifications</h3>
+            <ul class="certs">
+              <li>Introduction to Data Analytics — <span>IBM</span></li>
+              <li>Data Visualization &amp; Dashboards (Excel &amp; Cognos) — <span>IBM</span></li>
+              <li>UiPath Automation Implementation Fundamentals — <span>UiPath</span></li>
+              <li>Power BI for Finance — <span>LinkedIn Learning</span></li>
+              <li>Data Science Methodologies — <span>LinkedIn Learning</span></li>
+              <li>Data Analysis &amp; Big Data — <span>Future Connect</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Featured work (rendered by script.js from PROJECTS) ===== -->
+    <section class="section section--featured" id="featured" aria-labelledby="featured-title">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Selected work</p>
+        <h2 class="section__title" id="featured-title">Featured projects</h2>
+        <p class="section__sub">A few highlights that best show end-to-end delivery — from analysis to production.</p>
+      </div>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </section>
+
+    <!-- ===== All projects: search / filter ===== -->
+    <section class="section section--projects" id="projects" aria-labelledby="projects-title">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Portfolio</p>
+        <h2 class="section__title" id="projects-title">All projects</h2>
+        <p class="section__sub">
+          Filter by keyword or tech across every repository.
+          <a href="https://github.com/jumma786/mlops-portfolio" target="_blank" rel="noopener noreferrer">MLOps index</a>
+          ·
+          <a href="https://github.com/jumma786/mlops-portfolio-dashboard" target="_blank" rel="noopener noreferrer">Dashboard</a>
+        </p>
+      </div>
+
+      <div class="filter-bar" id="filterBar">
+        <div class="filter-bar__inner">
+          <label class="filter-bar__label" for="projectSearch">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <span class="visually-hidden">Filter projects by keyword or tech</span>
+          </label>
+          <input
+            type="search"
+            id="projectSearch"
+            class="filter-bar__input"
+            placeholder="Filter by keyword or tech (e.g. FastAPI, XGBoost, Power BI)…"
+            autocomplete="off"
+            aria-describedby="filterCount"
+          />
+          <button type="button" id="filterClear" class="filter-bar__clear" aria-label="Clear filter" hidden>
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+          <span class="filter-bar__count" id="filterCount" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <!-- Project sections (grids rendered by script.js) -->
+      <div class="project-group reveal" data-project-section>
+        <h3 class="project-group__title" id="mlops">Production ML &amp; MLOps</h3>
+        <div class="card-grid" data-grid="mlops"></div>
+      </div>
+
+      <div class="project-group reveal" data-project-section>
+        <h3 class="project-group__title" id="ml">Machine Learning &amp; Data Science</h3>
+        <div class="card-grid" data-grid="ml"></div>
+      </div>
+
+      <div class="project-group reveal" data-project-section>
+        <h3 class="project-group__title" id="analytics">End-to-End Analytics</h3>
+        <div class="card-grid" data-grid="analytics"></div>
+      </div>
+
+      <div class="project-group reveal" data-project-section>
+        <h3 class="project-group__title" id="bi">Power BI, Tableau &amp; BI</h3>
+        <div class="card-grid" data-grid="bi"></div>
+      </div>
+
+      <div class="project-group reveal" data-project-section>
+        <h3 class="project-group__title" id="sql">SQL Projects</h3>
+        <div class="card-grid" data-grid="sql"></div>
+      </div>
+
+      <div class="project-group reveal" data-project-section>
+        <h3 class="project-group__title" id="engineering">Data Engineering &amp; ETL</h3>
+        <div class="card-grid" data-grid="engineering"></div>
+      </div>
+
+      <div class="project-group reveal" data-project-section>
+        <h3 class="project-group__title" id="apps">Web Apps, APIs &amp; Portfolios</h3>
+        <div class="card-grid" data-grid="apps"></div>
+      </div>
+
+      <div class="project-group reveal" data-project-section>
+        <h3 class="project-group__title" id="utilities">Python Utilities &amp; Fundamentals</h3>
+        <div class="card-grid" data-grid="utilities"></div>
+      </div>
+
+      <div class="project-group reveal" data-project-section>
+        <h3 class="project-group__title" id="learning">Learning &amp; Coursework</h3>
+        <div class="card-grid" data-grid="learning"></div>
+      </div>
+
+      <p class="no-results" id="noResults" hidden>
+        No projects match that filter. <button type="button" id="noResultsClear" class="link-btn">Clear filter</button>
+      </p>
+    </section>
+
+    <!-- ===== Tech stack ===== -->
+    <section class="section" id="stack" aria-labelledby="stack-title">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Tooling</p>
+        <h2 class="section__title" id="stack-title">Tech stack</h2>
+      </div>
+      <div class="stack reveal" id="stackGroups"></div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Get in touch</p>
+        <h2 class="section__title" id="contact-title">Contact</h2>
+      </div>
+
+      <div class="contact reveal">
+        <div class="contact__intro">
+          <p class="contact__lead">Open to ML/AI Engineer &amp; Senior Data Analyst roles in the UK. Send a message and I'll get back to you.</p>
+          <ul class="contact__links">
+            <li>
+              <a href="https://www.linkedin.com/in/jumma-mohammad/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/jumma786" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+              </a>
+            </li>
+            <li>
+              <a href="mailto:jummamohammad477@gmail.com">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email
+              </a>
+            </li>
+            <li>
+              <button type="button" class="copy-email" id="copyEmail" data-email="jummamohammad477@gmail.com">
+                <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                <span id="copyEmailText">Copy email</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!--
+          Contact form. Posts to Formspree.
+          TODO: replace YOUR_FORM_ID below with your real form ID from https://formspree.io
+          (create a free form, then copy the ID from the endpoint it gives you:
+           https://formspree.io/f/XXXXXXXX  ->  YOUR_FORM_ID = XXXXXXXX).
+        -->
+        <form class="contact__form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <div class="field">
+            <label for="cfName">Name</label>
+            <input type="text" id="cfName" name="name" required autocomplete="name" />
+            <span class="field__error" data-error-for="cfName" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="cfEmail">Email</label>
+            <input type="email" id="cfEmail" name="email" required autocomplete="email" />
+            <span class="field__error" data-error-for="cfEmail" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="cfMessage">Message</label>
+            <textarea id="cfMessage" name="message" rows="5" required></textarea>
+            <span class="field__error" data-error-for="cfMessage" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block" id="cfSubmit">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send message
+          </button>
+          <p class="contact__status" id="cfStatus" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__brand">Jumma&nbsp;Mohammad&nbsp;Teli</p>
+      <ul class="footer__links">
+        <li><a href="https://github.com/jumma786" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/jumma-mohammad/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="mailto:jummamohammad477@gmail.com">Email</a></li>
+      </ul>
+      <p class="footer__fine">© <span id="year"></span> Jumma Mohammad Teli. Built with plain HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
