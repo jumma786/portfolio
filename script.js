@@ -98,7 +98,7 @@ const PROJECTS = {
     { name: 'PySpark Sales Analysis', highlight: '11 modules · 24-test pytest suite.', tags: ['PySpark', 'Databricks', 'pytest'], url: 'https://github.com/jumma786/pyspark-sales-analysis' },
     { name: 'NYC Taxi dbt', highlight: 'dbt transformation project on NYC taxi data.', tags: ['dbt', 'SQL', 'Warehouse'], url: 'https://github.com/jumma786/nyc_taxi_dbt' },
     { name: 'Movie ETL — Talend', highlight: 'ETL pipeline built in Talend.', tags: ['Talend', 'ETL'], url: 'https://github.com/jumma786/movie-etl-talend' },
-    { name: 'Cloud Weather Project', highlight: 'Cloud-based weather data project.', tags: ['Cloud', 'ETL'], url: 'https://github.com/jumma786/cloud-weather-project' },
+    { name: 'Cloud Weather Project', highlight: 'MSc group project (4 contributors) · cloud-based weather data app.', tags: ['Cloud', 'ETL'], url: 'https://github.com/jumma786/cloud-weather-project' },
   ],
 
   apps: [
