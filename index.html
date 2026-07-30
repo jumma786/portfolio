@@ -85,7 +85,6 @@
         <li><a href="#stack">Stack</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
-          <!-- Download CV (nav). TODO: add assets/Jumma-Mohammad-Teli-CV.pdf -->
           <a class="nav__cv btn btn--sm btn--primary" href="assets/Jumma-Mohammad-Teli-CV.pdf" download>
             <i class="fa-solid fa-download" aria-hidden="true"></i> CV
           </a>
@@ -117,7 +116,6 @@
           </p>
 
           <div class="hero__cta">
-            <!-- Download CV (hero, primary). TODO: add assets/Jumma-Mohammad-Teli-CV.pdf -->
             <a class="btn btn--primary" href="assets/Jumma-Mohammad-Teli-CV.pdf" download>
               <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
             </a>
@@ -132,7 +130,7 @@
           <!-- Stats banner -->
           <dl class="stats" aria-label="At a glance">
             <div class="stats__item">
-              <dt>Public repositories</dt><dd id="repoCount">91</dd>
+              <dt>Public repositories</dt><dd id="repoCount">94</dd>
             </div>
             <div class="stats__item">
               <dt>MLOps tests passing</dt><dd>132+</dd>
@@ -149,9 +147,8 @@
 
         <div class="hero__media reveal">
           <!--
-            Profile photo. TODO: add your professional photo at assets/profile.jpg
-            (a square image works best — it's displayed in a softly-rounded frame).
-            If the file is missing, the onerror handler shows a neutral "JT" placeholder.
+            Profile photo. Cropped square by CSS (aspect-ratio + object-fit: cover).
+            If the file is ever missing, the onerror handler shows a neutral "JT" placeholder.
           -->
           <img
             class="hero__photo"

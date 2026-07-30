@@ -30,20 +30,24 @@ Then open <http://localhost:8000>.
 > Opening `index.html` directly with `file://` mostly works, but a local server
 > avoids browser quirks around fetch/CDN and gives accurate behaviour.
 
-## Assets you need to add
+## Assets
 
-Create these two files (an `assets/` folder is already included):
+Both live in `assets/` and are already in the repo:
 
 1. **Profile photo** — `assets/profile.jpg`
-   A square image works best; it's shown in a softly-rounded frame in the hero.
-   Until you add it, the page shows a neutral "JT" placeholder automatically
-   (handled by an `onerror` fallback on the `<img>` — no broken image icon).
+   Shown in a softly-rounded frame in the hero, and used as the `og:image` for
+   link previews. It's cropped to a square by CSS (`aspect-ratio` +
+   `object-fit: cover`), so the source needn't be square. If the file ever goes
+   missing, an `onerror` fallback on the `<img>` shows a neutral "JT"
+   placeholder rather than a broken-image icon. Replacing it? Update the
+   `og:image:width` / `og:image:height` meta tags in `index.html` to match.
 
 2. **CV PDF** — `assets/Jumma-Mohammad-Teli-CV.pdf`
    The "Download CV" buttons (hero + nav) link to this with a `download`
-   attribute. Add the file at that exact path and the buttons just work.
+   attribute. Keep the filename as-is or update both links.
 
-Both paths are marked with `TODO` comments in `index.html` so they're easy to find.
+The favicon is an inline SVG data URI in `index.html` (a "JT" monogram matching
+the nav brand mark), so there is no icon file to maintain.
 
 ## Contact form (Formspree)
 
