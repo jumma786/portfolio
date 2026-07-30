@@ -396,13 +396,9 @@
           </ul>
         </div>
 
-        <!--
-          Contact form. Posts to Formspree.
-          TODO: replace YOUR_FORM_ID below with your real form ID from https://formspree.io
-          (create a free form, then copy the ID from the endpoint it gives you:
-           https://formspree.io/f/XXXXXXXX  ->  YOUR_FORM_ID = XXXXXXXX).
-        -->
-        <form class="contact__form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <!-- Contact form. Posts to Formspree; submission handling lives in
+             script.js (initContactForm). -->
+        <form class="contact__form" id="contactForm" action="https://formspree.io/f/mlgqkbpl" method="POST" novalidate>
           <div class="field">
             <label for="cfName">Name</label>
             <input type="text" id="cfName" name="name" required autocomplete="name" />

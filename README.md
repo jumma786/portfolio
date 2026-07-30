@@ -51,16 +51,20 @@ the nav brand mark), so there is no icon file to maintain.
 
 ## Contact form (Formspree)
 
-The contact form posts to [Formspree](https://formspree.io) (free tier is fine):
+The contact form posts to [Formspree](https://formspree.io) and is configured —
+the endpoint is set in the `action` of the contact `<form>` in `index.html`. To
+point it at a different form, replace the ID in that URL.
 
-1. Sign up at formspree.io and create a new form.
-2. Formspree gives you an endpoint like `https://formspree.io/f/abcdwxyz`.
-3. In `index.html`, find the contact `<form>` and replace **`YOUR_FORM_ID`** in
-   its `action` with your real ID (e.g. `abcdwxyz`). A `TODO` comment marks the spot.
+Submissions land in the Formspree dashboard and are forwarded to the account's
+email. Note the free tier's monthly submission cap; past it, Formspree stops
+forwarding and the visitor sees the generic error below.
 
-Until you set a real ID, the form validates input but shows a "not configured
-yet" message instead of sending. Client-side validation (required fields + email
-format) and success/error messaging are handled in `script.js` (`initContactForm`).
+Client-side validation (required fields + email format), the submit state, and
+success/error messaging are handled in `script.js` (`initContactForm`). It posts
+via `fetch` with `Accept: application/json`, so the visitor stays on the page
+instead of being redirected to Formspree's own thank-you page. A guard there
+still catches an unconfigured `YOUR_FORM_ID` placeholder, so blanking the ID
+fails loudly rather than silently dropping messages.
 
 ## Editing content
 
