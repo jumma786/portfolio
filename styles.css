@@ -23,8 +23,8 @@
    on <html>. One accent colour (professional blue); everything else is neutral.
    ========================================================================= */
 
-/* ---- Web fonts (icons come from a CDN; these are the only text fonts) ---- */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+/* ---- Web fonts (Plus Jakarta Sans + Inter) are loaded via <link> in the
+       <head> of index.html; icons come from a CDN. ---- */
 
 /* ============================ 1. Tokens ================================== */
 :root {
