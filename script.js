@@ -157,6 +157,8 @@ const STACK = [
 const FEATURED = [
   { name: 'Hospital Analytics End-to-End', badge: 'Analytics · End-to-end' },
   { name: 'Model Serving — FastAPI + Docker', badge: 'MLOps · Serving' },
+  { name: 'UK Online Retail Analytics', badge: 'Analytics · Business impact' },
+  { name: 'Model Monitoring & Drift Detection', badge: 'MLOps · Monitoring' },
   { name: 'UK Data Analyst Job Market NLP', badge: 'NLP · Analytics' },
   { name: 'Kubernetes ML Platform', badge: 'MLOps · Platform' },
 ];
