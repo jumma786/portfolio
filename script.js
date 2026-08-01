@@ -152,6 +152,69 @@ const STACK = [
   { group: 'Ways of Working', items: ['Agile/Scrum', 'JIRA', 'Confluence', 'UiPath RPA'] },
 ];
 
+/* Skills — capability areas shown as cards above the tech stack.
+
+   `level` is the label a reader sees; `pct` only drives the bar width, so keep
+   the two consistent (Expert ≈ 90+, Advanced ≈ 75–89, Proficient ≈ 60–74).
+   `proof` should stay tied to something verifiable elsewhere on the page —
+   a repo count, a test count, or a line from the experience timeline. */
+const SKILLS = [
+  {
+    area: 'Analytics & BI',
+    icon: 'fa-solid fa-chart-column',
+    level: 'Expert',
+    pct: 94,
+    blurb: 'Turn business questions into dashboards people actually use — modelling, DAX, row-level security and stakeholder reporting.',
+    tools: ['Power BI', 'DAX', 'Tableau', 'Excel'],
+    proof: '7+ years · 30% reporting-efficiency gain · 20+ stakeholders',
+  },
+  {
+    area: 'SQL & Data Modelling',
+    icon: 'fa-solid fa-database',
+    level: 'Expert',
+    pct: 92,
+    blurb: 'Query, tune and model relational data — stored procedures, views and star schemas built for reporting at scale.',
+    tools: ['T-SQL', 'SQL Server', 'PostgreSQL', 'Star schema'],
+    proof: '50+ production queries at UBS · 100K+ daily records',
+  },
+  {
+    area: 'MLOps & Production ML',
+    icon: 'fa-solid fa-gears',
+    level: 'Advanced',
+    pct: 86,
+    blurb: 'Ship models as versioned, monitored services — experiment tracking, retraining gates, containerised serving and orchestration.',
+    tools: ['MLflow', 'Docker', 'Kubernetes', 'Airflow', 'DVC'],
+    proof: '10 MLOps repositories · 132+ tests passing',
+  },
+  {
+    area: 'Machine Learning & Data Science',
+    icon: 'fa-solid fa-brain',
+    level: 'Advanced',
+    pct: 84,
+    blurb: 'Frame the problem, engineer leakage-safe features, then tune and evaluate honestly — classification, forecasting and NLP.',
+    tools: ['scikit-learn', 'XGBoost', 'SHAP', 'Optuna', 'NLP'],
+    proof: 'AUC 0.907 readmission model · 3,653 postings clustered',
+  },
+  {
+    area: 'Data Engineering & ETL',
+    icon: 'fa-solid fa-diagram-project',
+    level: 'Advanced',
+    pct: 78,
+    blurb: 'Move data reliably between systems — batch pipelines, transformation layers and automated extraction workflows.',
+    tools: ['Talend', 'SSIS', 'PySpark', 'dbt', 'Databricks'],
+    proof: '40% less manual processing · ~8 hours/week saved',
+  },
+  {
+    area: 'Cloud & DevOps',
+    icon: 'fa-solid fa-cloud',
+    level: 'Proficient',
+    pct: 72,
+    blurb: 'Deploy and automate what I build — containerised services, managed runtimes and CI that runs the test suite on every push.',
+    tools: ['AWS', 'Google Cloud', 'Cloud Run', 'GitHub Actions'],
+    proof: 'Live deployed APIs · CI/CD across the MLOps repos',
+  },
+];
+
 /* Featured work — references PROJECTS by exact `name` (single source of truth).
    `badge` is a presentational label only, not project data. */
 const FEATURED = [
@@ -255,6 +318,34 @@ function renderFeatured() {
       </article>
     `;
   }).join('');
+}
+
+/** Render the skills section.
+
+    The bar is decorative (aria-hidden): the level is already stated in text
+    next to it, so screen readers get the value without reading a widget. */
+function renderSkills() {
+  const host = document.getElementById('skillsGrid');
+  if (!host) return;
+  host.innerHTML = SKILLS.map((s) => `
+    <article class="skill-card">
+      <div class="skill-card__head">
+        <span class="skill-card__icon" aria-hidden="true"><i class="${esc(s.icon)}"></i></span>
+        <h3 class="skill-card__title">${esc(s.area)}</h3>
+      </div>
+      <p class="skill-card__blurb">${esc(s.blurb)}</p>
+      <p class="skill-card__meter">
+        <span class="skill-card__level">${esc(s.level)}</span>
+        <span class="skill-card__bar" aria-hidden="true">
+          <span class="skill-card__fill" style="--fill:${Number(s.pct)}%"></span>
+        </span>
+      </p>
+      <ul class="skill-card__tools" aria-label="Key tools">
+        ${s.tools.map((t) => `<li>${esc(t)}</li>`).join('')}
+      </ul>
+      <p class="skill-card__proof">${esc(s.proof)}</p>
+    </article>
+  `).join('');
 }
 
 /** Render the tech-stack section. */
@@ -520,6 +611,7 @@ function initRepoCount() {
 document.addEventListener('DOMContentLoaded', () => {
   renderFeatured();
   renderProjects();
+  renderSkills();
   renderStack();
   initFilter();
   initTheme();

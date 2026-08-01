@@ -7,7 +7,7 @@ No framework, no build step: just serve the files.
 ```
 index.html    Structure and content shell
 styles.css    Theme (light default / dark), layout, responsive rules
-script.js     Project + stack data, featured/section rendering, filter, theme,
+script.js     Project + skills + stack data, featured/section rendering, filter, theme,
               nav, reveal, contact form, live repo count
 assets/       Your profile photo and CV PDF (see "Assets" below)
 README.md     This file
@@ -89,6 +89,12 @@ Almost everything you'll want to change lives in **`script.js`**:
   `{ name, badge }`, where `name` must match a project's `name` exactly — the
   card's details are pulled from `PROJECTS`, so there's a single source of truth.
   Change the four names/badges to feature different projects.
+
+- **Skills** — the `SKILLS` array drives the capability cards above the tech
+  stack. Each entry is `{ area, icon, level, pct, blurb, tools, proof }`:
+  `level` is the label a reader sees and `pct` only sets the bar width, so keep
+  the two in step (Expert ≈ 90+, Advanced ≈ 75–89, Proficient ≈ 60–74). `icon`
+  is a Font Awesome class; `proof` is the evidence line under the divider.
 
 - **Tech stack** — the `STACK` array controls the grouped pill lists.
 
