@@ -3,8 +3,8 @@
    script.js  (vanilla JS, no dependencies)
 
    To add or edit a project, edit the PROJECTS object below — each entry
-   becomes a card. Featured cards reference this same data by name (see
-   FEATURED), so there is a single source of truth.
+   becomes a card. The flagship work is written up separately in CASE_STUDIES,
+   which carries its own narrative copy rather than referencing PROJECTS.
 
    Card shape:
      {
@@ -23,6 +23,8 @@
 --------------------------------------------------------------------------- */
 const PROJECTS = {
   mlops: [
+    { name: 'MLOps Portfolio — Overview', highlight: 'Umbrella repo tying the 10 MLOps projects together.', tags: ['MLOps', 'CI/CD', 'Docker'], url: 'https://github.com/jumma786/mlops-portfolio' },
+    { name: 'MLOps Knowledge-Graph Dashboard', highlight: 'Interactive knowledge-graph view of the MLOps portfolio.', tags: ['Dashboard', 'Knowledge graph'], url: 'https://github.com/jumma786/mlops-portfolio-dashboard' },
     { name: 'Multi-Model Tournament Pipeline', highlight: '13/13 tests · model tournament across gradient-boosting families.', tags: ['MLflow', 'XGBoost', 'LightGBM', 'CatBoost'], url: 'https://github.com/jumma786/mlops-model-tournament' },
     { name: 'Scheduled Retraining + DVC', highlight: '11/11 tests · champion gate on scheduled retraining runs.', tags: ['DVC', 'MLflow', 'Champion gate'], url: 'https://github.com/jumma786/mlops-retraining-pipeline' },
     { name: 'Feature Engineering Pipeline', highlight: '17/17 tests · custom sklearn transformers tracked in MLflow.', tags: ['sklearn', 'MLflow', 'Transformers'], url: 'https://github.com/jumma786/mlops-feature-pipeline' },
@@ -37,6 +39,8 @@ const PROJECTS = {
   ],
 
   ml: [
+    { name: 'Marketing Attribution — 16.5M Events', highlight: 'Markov removal-effect and Shapley attribution solved exactly · 108s run.', tags: ['Markov chains', 'Shapley', 'dbt', '16.5M events'], url: 'https://github.com/jumma786/marketing-attribution-modelling' },
+    { name: 'Wikipedia Pageviews Anomaly Detection', highlight: 'Robust rolling median/MAD spike detection on high-volume streams.', tags: ['Anomaly detection', 'MAD', 'Streamlit'], url: 'https://github.com/jumma786/wikipedia-pageviews-anomaly' },
     { name: 'Workplace Churn Feature Engineering', highlight: 'Leakage-safe pipeline · AUC 0.820.', tags: ['sklearn', 'Feature engineering', 'AUC 0.820'], url: 'https://github.com/jumma786/workplace-churn-feature-engineering' },
     { name: 'GaitSync — Gait Analysis ML', highlight: 'MSc dissertation · rehabilitation-focused gait analysis.', tags: ['ML', 'Healthcare', 'Dissertation'], url: 'https://github.com/jumma786/gaitsync-gait-analysis-ml' },
     { name: 'Gait Speed Predictor', highlight: 'Gait-speed regression model.', tags: ['Regression', 'Biomechanics'], url: 'https://github.com/jumma786/gait-speed-predictor' },
@@ -53,6 +57,11 @@ const PROJECTS = {
   ],
 
   analytics: [
+    { name: 'Enterprise DWH Analytics', highlight: '6.36M financial transactions · fraud recall exposed at 0.19%.', tags: ['Kimball', 'Teradata', '6.36M rows'], url: 'https://github.com/jumma786/enterprise-dwh-analytics' },
+    { name: 'SaaS Subscription Metrics', highlight: 'ARR, NRR and GRR retention analysis in Python and SQL.', tags: ['SaaS metrics', 'SQL', 'Retention'], url: 'https://github.com/jumma786/saas-subscription-metrics' },
+    { name: 'GA4 Demo Account Analysis', highlight: 'BigQuery SQL against the public GA4 export schema (UNNEST event_params).', tags: ['GA4', 'BigQuery', 'SQL'], url: 'https://github.com/jumma786/ga4-demo-account-analysis' },
+    { name: 'Market Sizing — TAM/SAM/SOM', highlight: 'Top-down and bottom-up sizing cross-checked against each other.', tags: ['Market sizing', 'Case study'], url: 'https://github.com/jumma786/market-sizing-tam-sam-som' },
+    { name: 'BA Requirements — Fraud Scorecard', highlight: 'BRD, user stories, traceability matrix and DoD against a real model.', tags: ['Business analysis', 'BRD', 'Requirements'], url: 'https://github.com/jumma786/ba-requirements-fraud-scorecard-case-study' },
     { name: 'Hospital Analytics End-to-End', highlight: 'AUC 0.907 readmission prediction on a star schema.', tags: ['XGBoost', 'Star schema', 'AUC 0.907'], url: 'https://github.com/jumma786/hospital-analytics-end-to-end' },
     { name: 'Hospital Quality Intelligence', highlight: 'Hospital quality intelligence analytics.', tags: ['Analytics', 'Healthcare'], url: 'https://github.com/jumma786/hospital-quality-intelligence' },
     { name: 'Hospital Readmission API', highlight: 'Deployed live API with pytest coverage.', tags: ['FastAPI', 'pytest', 'Deployed'], url: 'https://github.com/jumma786/hospital-readmission-api' },
@@ -71,6 +80,7 @@ const PROJECTS = {
   ],
 
   bi: [
+    { name: 'Looker Studio SaaS Dashboard', highlight: 'Build-ready dashboard spec, prepared data and calculated fields.', tags: ['Looker Studio', 'SaaS', 'Revenue'], url: 'https://github.com/jumma786/looker-studio-saas-dashboard' },
     { name: 'NorthStar Living UK Retail Dashboard', highlight: 'UK retail performance dashboard.', tags: ['Power BI', 'DAX', 'Retail'], url: 'https://github.com/jumma786/-NorthStar-Living-UK-Retail-Performance-Dashboard' },
     { name: 'NHS RTT Dashboard', highlight: 'NHS referral-to-treatment waiting times.', tags: ['Power BI', 'Excel', 'NHS'], url: 'https://github.com/jumma786/NHS-RTT-Dashboard' },
     { name: 'HR Attrition Analysis', highlight: 'Workforce attrition analysis.', tags: ['Power BI', 'HR'], url: 'https://github.com/jumma786/hr-attrition-analysis-powerbi' },
@@ -95,6 +105,8 @@ const PROJECTS = {
   ],
 
   engineering: [
+    { name: 'Teradata → Snowflake Rebuild', highlight: '6.36M-row warehouse migrated · DDL translation and load validation.', tags: ['Snowflake', 'Teradata', 'Migration'], url: 'https://github.com/jumma786/snowflake-dwh-rebuild' },
+    { name: 'OpenMetadata Data Catalogue', highlight: 'Catalog and business glossary (MRR/ARR/NRR/GRR) over a real dataset.', tags: ['OpenMetadata', 'Governance', 'Lineage'], url: 'https://github.com/jumma786/data-cataloguing-openmetadata' },
     { name: 'PySpark Sales Analysis', highlight: '11 modules · 24-test pytest suite.', tags: ['PySpark', 'Databricks', 'pytest'], url: 'https://github.com/jumma786/pyspark-sales-analysis' },
     { name: 'NYC Taxi dbt', highlight: 'dbt transformation project on NYC taxi data.', tags: ['dbt', 'SQL', 'Warehouse'], url: 'https://github.com/jumma786/nyc_taxi_dbt' },
     { name: 'Movie ETL — Talend', highlight: 'ETL pipeline built in Talend.', tags: ['Talend', 'ETL'], url: 'https://github.com/jumma786/movie-etl-talend' },
@@ -102,7 +114,8 @@ const PROJECTS = {
   ],
 
   apps: [
-    { name: 'DataVision Tech Solutions Web', highlight: 'Company website (private repo).', tags: ['Web', 'Company'], private: true },
+    { name: 'AI Data Analysis Agent', highlight: 'NL → validated read-only SQL via LangGraph · JWT auth · 133 tests.', tags: ['LangGraph', 'FastAPI', 'RAG', '133 tests'], url: 'https://github.com/jumma786/ai-data-analysis-agent' },
+    { name: 'DataVision Tech Solutions Web', highlight: 'Company website build.', tags: ['Web', 'Company'], url: 'https://github.com/jumma786/datavisiontechsolutions' },
     { name: 'DVTS Chatbot API', highlight: 'Chatbot API service.', tags: ['FastAPI', 'API'], url: 'https://github.com/jumma786/dvts-chatbot-api' },
     { name: 'Portfolio Risk Analyser', highlight: 'Portfolio risk analysis tool.', tags: ['Python', 'Finance'], url: 'https://github.com/jumma786/portfolio-risk-analyser' },
     { name: 'Portfolio Risk Web', highlight: 'Portfolio risk web app.', tags: ['Web', 'Finance'], url: 'https://github.com/jumma786/portfolio-risk-web' },
@@ -141,13 +154,13 @@ const PROJECTS = {
 /* Tech-stack groups */
 const STACK = [
   { group: 'Languages', items: ['Python', 'SQL', 'T-SQL', 'R'] },
-  { group: 'ML & Data Science', items: ['scikit-learn', 'XGBoost', 'LightGBM', 'CatBoost', 'pandas', 'NumPy', 'SHAP', 'NLP', 'UMAP', 'HDBSCAN', 'A/B Testing', 'Forecasting'] },
+  { group: 'ML & Data Science', items: ['scikit-learn', 'XGBoost', 'LightGBM', 'CatBoost', 'pandas', 'NumPy', 'SHAP', 'NLP', 'UMAP', 'HDBSCAN', 'A/B Testing', 'Forecasting', 'Hypothesis testing', 'Anomaly detection'] },
   { group: 'MLOps', items: ['MLflow', 'DVC', 'Optuna', 'Airflow', 'Kubernetes', 'Helm', 'Prometheus', 'Docker'] },
-  { group: 'BI & Visualisation', items: ['Power BI', 'DAX', 'Power Query', 'Row-Level Security', 'Tableau', 'Cognos', 'SSRS', 'Excel (VBA, Power Pivot)'] },
-  { group: 'Databases', items: ['SQL Server', 'PostgreSQL', 'MySQL', 'SSMS', 'Stored Procedures'] },
-  { group: 'Data Engineering & ETL', items: ['Talend', 'SSIS', 'PySpark', 'Databricks', 'dbt', 'OpenRefine'] },
-  { group: 'APIs & Apps', items: ['FastAPI', 'Flask', 'Streamlit', 'pytest'] },
-  { group: 'Cloud', items: ['AWS (S3, Redshift, Lambda)', 'Google Cloud', 'Cloud Run', 'Render'] },
+  { group: 'BI & Visualisation', items: ['Power BI', 'DAX', 'Power Query', 'Row-Level Security', 'Tableau', 'Looker Studio', 'Cognos', 'SSRS', 'Excel (VBA, Power Pivot)'] },
+  { group: 'Databases', items: ['SQL Server', 'Teradata', 'PostgreSQL', 'MySQL', 'MongoDB', 'DuckDB', 'Stored Procedures'] },
+  { group: 'Data Engineering & ETL', items: ['dbt', 'Airflow', 'Talend', 'SSIS', 'PySpark', 'Databricks', 'OpenMetadata', 'Data quality gates'] },
+  { group: 'APIs & Apps', items: ['FastAPI', 'Flask', 'Streamlit', 'LangGraph', 'REST', 'pytest'] },
+  { group: 'Cloud & Warehouses', items: ['AWS (S3, Glue, Athena, Lambda, Redshift)', 'GCP / BigQuery', 'Snowflake', 'Databricks', 'Cloud Run', 'Render'] },
   { group: 'DevOps & Version Control', items: ['Git', 'GitHub', 'GitHub Actions CI/CD'] },
   { group: 'Ways of Working', items: ['Agile/Scrum', 'JIRA', 'Confluence', 'UiPath RPA'] },
 ];
@@ -175,7 +188,7 @@ const SKILLS = [
     pct: 92,
     blurb: 'Query, tune and model relational data — stored procedures, views and star schemas built for reporting at scale.',
     tools: ['T-SQL', 'SQL Server', 'PostgreSQL', 'Star schema'],
-    proof: '50+ production queries at UBS · 100K+ daily records',
+    proof: '50+ tuned queries at UBS · star schema over 6.36M transactions',
   },
   {
     area: 'MLOps & Production ML',
@@ -184,7 +197,7 @@ const SKILLS = [
     pct: 86,
     blurb: 'Ship models as versioned, monitored services — experiment tracking, retraining gates, containerised serving and orchestration.',
     tools: ['MLflow', 'Docker', 'Kubernetes', 'Airflow', 'DVC'],
-    proof: '10 MLOps repositories · 132+ tests passing',
+    proof: '10 MLOps repositories · 132+ tests · champion gated at 0.8174 AUC',
   },
   {
     area: 'Machine Learning & Data Science',
@@ -193,7 +206,7 @@ const SKILLS = [
     pct: 84,
     blurb: 'Frame the problem, engineer leakage-safe features, then tune and evaluate honestly — classification, forecasting and NLP.',
     tools: ['scikit-learn', 'XGBoost', 'SHAP', 'Optuna', 'NLP'],
-    proof: 'AUC 0.907 readmission model · 3,653 postings clustered',
+    proof: '94.86% demand forecast · AUC 0.907 readmission model · 3,653 postings clustered',
   },
   {
     area: 'Data Engineering & ETL',
@@ -201,8 +214,8 @@ const SKILLS = [
     level: 'Advanced',
     pct: 78,
     blurb: 'Move data reliably between systems — batch pipelines, transformation layers and automated extraction workflows.',
-    tools: ['Talend', 'SSIS', 'PySpark', 'dbt', 'Databricks'],
-    proof: '40% less manual processing · ~8 hours/week saved',
+    tools: ['dbt', 'Airflow', 'Talend', 'PySpark', 'Snowflake'],
+    proof: '16.5M events in 108s · 9.4M-row tested marts · ~8 hours/week saved',
   },
   {
     area: 'Cloud & DevOps',
@@ -210,20 +223,125 @@ const SKILLS = [
     level: 'Proficient',
     pct: 72,
     blurb: 'Deploy and automate what I build — containerised services, managed runtimes and CI that runs the test suite on every push.',
-    tools: ['AWS', 'Google Cloud', 'Cloud Run', 'GitHub Actions'],
-    proof: 'Live deployed APIs · CI/CD across the MLOps repos',
+    tools: ['AWS', 'BigQuery', 'Snowflake', 'Databricks', 'GitHub Actions'],
+    proof: 'Snowflake, BigQuery & Databricks · CI/CD across the MLOps repos',
   },
 ];
 
-/* Featured work — references PROJECTS by exact `name` (single source of truth).
-   `badge` is a presentational label only, not project data. */
-const FEATURED = [
-  { name: 'Hospital Analytics End-to-End', badge: 'Analytics · End-to-end' },
-  { name: 'Model Serving — FastAPI + Docker', badge: 'MLOps · Serving' },
-  { name: 'UK Online Retail Analytics', badge: 'Analytics · Business impact' },
-  { name: 'Model Monitoring & Drift Detection', badge: 'MLOps · Monitoring' },
-  { name: 'UK Data Analyst Job Market NLP', badge: 'NLP · Analytics' },
-  { name: 'Kubernetes ML Platform', badge: 'MLOps · Platform' },
+/* Selected case studies — the flagship work, shown with the problem, the
+   decision that mattered, and the outcome. These are deliberately richer than
+   a project card: a recruiter skimming for 30 seconds should still land on a
+   number. Self-contained (not looked up in PROJECTS) because the narrative is
+   case-study copy, not card copy; the same repos also appear in the grids below.
+
+   Shape:
+     {
+       name, badge,            // title + category label
+       metric, metricLabel,    // the one number a skim-reader takes away
+       problem, approach, result,
+       stack: [...],           // technologies, also fed to search
+       url                     // repo (omit => private)
+     } */
+const CASE_STUDIES = [
+  {
+    name: 'Fraud Control Audit on a 6.36M-Transaction Warehouse',
+    badge: 'Data warehousing · Financial data',
+    metric: '$11.98B',
+    metricLabel: 'unflagged exposure surfaced',
+    problem: 'A fraud-detection control reported healthy metrics. Nobody had checked those metrics against the source data.',
+    approach: 'Built a Kimball star schema over 6.36M financial transactions with automated data-quality gates, then reconstructed the control’s real behaviour from the facts rather than from its own reporting.',
+    result: 'True recall came out at 0.19% — against $11.98B of exposure the control never flagged. Verifying what a system actually does, instead of trusting what it claims.',
+    stack: ['SQL', 'Kimball star schema', 'Teradata', 'Quality gates'],
+    url: 'https://github.com/jumma786/enterprise-dwh-analytics',
+  },
+  {
+    name: 'Attribution Across 16.5M Events, Solved Exactly',
+    badge: 'Quantitative modelling · Scale',
+    metric: '108s',
+    metricLabel: 'full pipeline run',
+    problem: 'Multi-touch attribution over 16,468,027 events and 6.1M users. The default answer is Monte Carlo simulation, which is slow and only ever approximate.',
+    approach: 'Solved the Markov absorption probabilities exactly via the fundamental matrix — trading a single linear solve for orders of magnitude fewer iterations — with Shapley and rule-based models alongside for comparison.',
+    result: 'The whole pipeline runs in 108 seconds under 30 tests, and the answer is exact rather than sampled. The method was chosen deliberately and the tradeoff stated, not hidden.',
+    stack: ['Python', 'Markov chains', 'Linear algebra', 'dbt', 'Shapley'],
+    url: 'https://github.com/jumma786/marketing-attribution-modelling',
+  },
+  {
+    name: 'Orchestrated Pipeline with In-Build Quality Gates',
+    badge: 'Data engineering · Reliability',
+    metric: '9.4M',
+    metricLabel: 'rows, tested inside the pipeline',
+    problem: 'A broken upstream assumption normally reaches a dashboard before anyone notices — by which point someone has already made a decision on it.',
+    approach: 'Raw data through modular, tested dbt transformations to a consumable dataset, orchestrated in Airflow on BigQuery, with data-quality tests running inside the pipeline rather than after it.',
+    result: 'A bad assumption fails the build instead of quietly reaching a consumer. Reliability designed in at the transformation layer, not bolted on downstream.',
+    stack: ['dbt', 'Airflow', 'BigQuery', 'SQL'],
+    url: 'https://github.com/jumma786/nyc_taxi_dbt',
+  },
+  {
+    name: 'Self-Service Analytics Agent with Enforced Guardrails',
+    badge: 'AI engineering · Tooling',
+    metric: '133',
+    metricLabel: 'tests covering the guardrails',
+    problem: 'Routine database questions bottleneck on an analyst. Handing a language model a live database connection solves that and creates a much worse problem.',
+    approach: 'A LangGraph pipeline that converts a plain-English question to SQL, refuses to execute anything that is not read-only, runs it and explains the result — behind JWT auth, with RAG over the documentation.',
+    result: 'A working tool rather than a one-off analysis, with 133 passing tests aimed specifically at the guardrails: the refusal path is the part that has to be right.',
+    stack: ['Python', 'LangGraph', 'FastAPI', 'PostgreSQL', 'RAG'],
+    url: 'https://github.com/jumma786/ai-data-analysis-agent',
+  },
+  {
+    name: 'UK Electricity Demand Forecasting',
+    badge: 'Machine learning · Time series',
+    metric: '94.86%',
+    metricLabel: 'accuracy, held-out',
+    problem: 'National electricity demand is volatile and externally driven. Being confidently wrong is the expensive failure mode.',
+    approach: 'XGBoost with seasonality, calendar effects and weather-driven features engineered explicitly, served behind FastAPI with CI over a tested codebase.',
+    result: '94.86% accuracy validated on held-out periods rather than in-sample — the distinction that decides whether a forecast survives contact with next week.',
+    stack: ['Python', 'XGBoost', 'FastAPI', 'Feature engineering', 'CI'],
+    url: 'https://github.com/jumma786/uk-energy-forecasting',
+  },
+  {
+    name: 'Production ML Tournament with Deployment Gates',
+    badge: 'MLOps · Model lifecycle',
+    metric: '0.8174',
+    metricLabel: 'champion AUC, auto-selected',
+    problem: 'Picking a model by eye and promoting it by hand is how an unreproducible champion ends up in production.',
+    approach: 'A five-algorithm tournament — LogReg, Random Forest, XGBoost, LightGBM, CatBoost — auto-selecting a champion by AUC with the leakage-prone field removed, tracked in MLflow and gated in CI on a metric threshold.',
+    result: '0.8174 AUC at 86.66% accuracy, promoted only when the gate passes. Sits inside a ten-repository MLOps portfolio covering feature stores, drift detection, A/B routing and Kubernetes serving.',
+    stack: ['MLflow', 'XGBoost', 'LightGBM', 'CatBoost', 'GitHub Actions'],
+    url: 'https://github.com/jumma786/mlops-model-tournament',
+  },
+  {
+    name: 'Retail Revenue Exposure Quantified',
+    badge: 'Analytics · Business impact',
+    metric: '£1.26M',
+    metricLabel: 'revenue exposure sized',
+    problem: 'Churn analysis that ends at a probability score gives a business nothing to prioritise against competing investments.',
+    approach: 'End-to-end analysis of 1.07M transactions — dimensional modelling, RFM behavioural segmentation, a four-page Power BI dashboard, and a churn model built on leakage-safe, time-based features.',
+    result: 'Risk expressed in currency: £1.26M of revenue exposure, sized so it could be ranked against other calls on the budget.',
+    stack: ['Python', 'SQL Server', 'Power BI', 'RFM', 'Dimensional modelling'],
+    url: 'https://github.com/jumma786/online-retail-analytics',
+  },
+  {
+    name: 'Teradata → Snowflake Warehouse Migration',
+    badge: 'Data platform · Migration',
+    metric: '6.36M',
+    metricLabel: 'rows migrated and validated',
+    problem: 'A platform migration is only finished when you can prove the target holds the same data as the source — not when the load script exits zero.',
+    approach: 'Rebuilt a 6.36M-row Teradata/DuckDB fraud-analytics warehouse on Snowflake: DDL translation across dialects, real data export, and load validation against the source.',
+    result: 'A migration with the verification step treated as part of the work rather than as an afterthought.',
+    stack: ['Snowflake', 'Teradata', 'DuckDB', 'Python', 'SQL'],
+    url: 'https://github.com/jumma786/snowflake-dwh-rebuild',
+  },
+  {
+    name: 'Anomaly Detection on High-Volume Streams',
+    badge: 'Monitoring · Statistics',
+    metric: 'Median/MAD',
+    metricLabel: 'outlier-resistant baseline',
+    problem: 'Mean and standard deviation are the obvious choice for spike detection, and the wrong one: a single extreme datapoint drags the baseline it is supposed to be measured against.',
+    approach: 'Robust rolling median and MAD statistics over high-volume Wikimedia pageview time series, surfaced through Streamlit.',
+    result: 'Detection that holds its baseline under exactly the conditions it exists to catch — the same problem as spotting a bad tick or a broken feed and deciding whether it is signal or noise.',
+    stack: ['Python', 'Rolling median/MAD', 'Streamlit', 'Time series'],
+    url: 'https://github.com/jumma786/wikipedia-pageviews-anomaly',
+  },
 ];
 
 /* ---------------------------------------------------------------------------
@@ -288,32 +406,47 @@ function renderProjects() {
   });
 }
 
-/** Render the "Featured work" highlight cards by referencing PROJECTS. */
-function renderFeatured() {
-  const host = document.getElementById('featuredGrid');
+/** Render the "Selected case studies" section from CASE_STUDIES.
+
+    Each card leads with the metric so the page still communicates at a skim,
+    then gives problem / approach / result for a reader who slows down. */
+function renderCaseStudies() {
+  const host = document.getElementById('caseGrid');
   if (!host) return;
 
-  host.innerHTML = FEATURED.map((f, idx) => {
-    const p = findProject(f.name);
-    if (!p) return ''; // name changed in PROJECTS? skip rather than break.
-    const isPrivate = p.private || !p.url;
+  host.innerHTML = CASE_STUDIES.map((c, idx) => {
     const num = String(idx + 1).padStart(2, '0');
-    const tags = (p.tags || []).map((t) => `<li>${esc(t)}</li>`).join('');
-    const action = isPrivate
-      ? `<span class="card__badge" aria-label="Private repository">
+    const stack = (c.stack || []).map((t) => `<li>${esc(t)}</li>`).join('');
+    const action = c.url
+      ? `<a class="case-card__link" href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">
+           <i class="fa-brands fa-github" aria-hidden="true"></i> Read the code
+           <i class="fa-solid fa-arrow-right case-card__arrow" aria-hidden="true"></i>
+         </a>`
+      : `<span class="card__badge" aria-label="Private repository">
            <i class="fa-solid fa-lock" aria-hidden="true"></i> Private repo
-         </span>`
-      : `<a class="featured-card__link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">
-           <i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub
-           <i class="fa-solid fa-arrow-right featured-card__arrow" aria-hidden="true"></i>
-         </a>`;
+         </span>`;
+
     return `
-      <article class="featured-card">
-        <span class="featured-card__num" aria-hidden="true">${num}</span>
-        <span class="featured-card__badge">${esc(f.badge)}</span>
-        <h3 class="featured-card__title">${esc(p.name)}</h3>
-        <p class="featured-card__highlight">${esc(p.highlight)}</p>
-        <ul class="featured-card__tags" aria-label="Tech stack">${tags}</ul>
+      <article class="case-card">
+        <div class="case-card__head">
+          <span class="case-card__num" aria-hidden="true">${num}</span>
+          <span class="case-card__badge">${esc(c.badge)}</span>
+        </div>
+
+        <h3 class="case-card__title">${esc(c.name)}</h3>
+
+        <p class="case-card__metric">
+          <span class="case-card__metric-value">${esc(c.metric)}</span>
+          <span class="case-card__metric-label">${esc(c.metricLabel)}</span>
+        </p>
+
+        <dl class="case-card__body">
+          <dt>Problem</dt><dd>${esc(c.problem)}</dd>
+          <dt>Approach</dt><dd>${esc(c.approach)}</dd>
+          <dt>Result</dt><dd>${esc(c.result)}</dd>
+        </dl>
+
+        <ul class="case-card__tags" aria-label="Tech stack">${stack}</ul>
         ${action}
       </article>
     `;
@@ -609,7 +742,7 @@ function initRepoCount() {
    11. INIT
 --------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-  renderFeatured();
+  renderCaseStudies();
   renderProjects();
   renderSkills();
   renderStack();

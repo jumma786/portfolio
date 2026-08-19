@@ -5,3 +5,6 @@ Desktop.ini
 *.swp
 .idea/
 .vscode/
+
+# Personal certificates / identity documents kept locally — never publish
+/*.pdf
