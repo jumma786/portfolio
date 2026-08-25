@@ -153,16 +153,16 @@ const PROJECTS = {
 
 /* Tech-stack groups */
 const STACK = [
-  { group: 'Languages', items: ['Python', 'SQL', 'T-SQL', 'R'] },
-  { group: 'ML & Data Science', items: ['scikit-learn', 'XGBoost', 'LightGBM', 'CatBoost', 'pandas', 'NumPy', 'SHAP', 'NLP', 'UMAP', 'HDBSCAN', 'A/B Testing', 'Forecasting', 'Hypothesis testing', 'Anomaly detection'] },
-  { group: 'MLOps', items: ['MLflow', 'DVC', 'Optuna', 'Airflow', 'Kubernetes', 'Helm', 'Prometheus', 'Docker'] },
-  { group: 'BI & Visualisation', items: ['Power BI', 'DAX', 'Power Query', 'Row-Level Security', 'Tableau', 'Looker Studio', 'Cognos', 'SSRS', 'Excel (VBA, Power Pivot)'] },
-  { group: 'Databases', items: ['SQL Server', 'Teradata', 'PostgreSQL', 'MySQL', 'MongoDB', 'DuckDB', 'Stored Procedures'] },
-  { group: 'Data Engineering & ETL', items: ['dbt', 'Airflow', 'Talend', 'SSIS', 'PySpark', 'Databricks', 'OpenMetadata', 'Data quality gates'] },
-  { group: 'APIs & Apps', items: ['FastAPI', 'Flask', 'Streamlit', 'LangGraph', 'REST', 'pytest'] },
-  { group: 'Cloud & Warehouses', items: ['AWS (S3, Glue, Athena, Lambda, Redshift)', 'GCP / BigQuery', 'Snowflake', 'Databricks', 'Cloud Run', 'Render'] },
-  { group: 'DevOps & Version Control', items: ['Git', 'GitHub', 'GitHub Actions CI/CD'] },
-  { group: 'Ways of Working', items: ['Agile/Scrum', 'JIRA', 'Confluence', 'UiPath RPA'] },
+  { group: 'Power BI', items: ['DAX', 'Power Query (M)', 'Semantic models', 'Deployment pipelines', 'Gateways', 'Row-Level Security', 'Dataflows', 'Shared datasets'] },
+  { group: 'SQL & Warehouses', items: ['Advanced SQL', 'Snowflake', 'Teradata', 'Azure SQL', 'SQL Server / T-SQL', 'BigQuery', 'PostgreSQL', 'MySQL', 'CTEs & window functions', 'Stored procedures', 'Query tuning'] },
+  { group: 'Transformation & Modelling', items: ['dbt', 'Dataform', 'Kimball star schemas', 'Fact/dimension grain', 'Incremental models', 'Data quality tests'] },
+  { group: 'Data Quality & Governance', items: ['Validation', 'Profiling', 'Reconciliation', 'Automated quality gates', 'Data dictionaries', 'Lineage', 'GDPR', 'FCA'] },
+  { group: 'Other BI & Visualisation', items: ['Tableau', 'Amazon QuickSight', 'Looker (LookML)', 'Omni', 'Qlik Sense', 'SSRS', 'Cognos', 'Excel (VBA, Power Pivot)'] },
+  { group: 'Languages & Analysis', items: ['Python', 'pandas', 'NumPy', 'scikit-learn', 'XGBoost', 'PySpark', 'pytest', 'R', 'Regression', 'Forecasting', 'A/B Testing'] },
+  { group: 'ETL & Orchestration', items: ['Apache Airflow', 'Talend', 'SSIS', 'dlt', 'Databricks', 'OpenMetadata'] },
+  { group: 'Automation & Delivery', items: ['Power Automate', 'UiPath RPA', 'Azure DevOps', 'Scheduled jobs', 'Git', 'GitHub Actions CI/CD', 'Pull requests'] },
+  { group: 'ML & MLOps', items: ['MLflow', 'DVC', 'Optuna', 'SHAP', 'Docker', 'Kubernetes', 'FastAPI', 'Drift detection'] },
+  { group: 'Business & Ways of Working', items: ['AUM/AUMA', 'Client retention', 'Cohort analysis', 'KPI frameworks', 'Requirements & UAT', 'Agile/Scrum', 'JIRA', 'Confluence', 'Salesforce', 'GA4', 'Microsoft Fabric'] },
 ];
 
 /* Skills — capability areas shown as cards above the tech stack.
@@ -173,60 +173,61 @@ const STACK = [
    a repo count, a test count, or a line from the experience timeline. */
 const SKILLS = [
   {
-    area: 'Analytics & BI',
+    area: 'Power BI & Reporting',
     icon: 'fa-solid fa-chart-column',
     level: 'Expert',
     pct: 94,
-    blurb: 'Turn business questions into dashboards people actually use — modelling, DAX, row-level security and stakeholder reporting.',
-    tools: ['Power BI', 'DAX', 'Tableau', 'Excel'],
-    proof: '7+ years · 30% reporting-efficiency gain · 20+ stakeholders',
+    blurb: 'DAX, Power Query with error handling that survives a refresh, and semantic models built from scratch — plus full Power BI Service administration.',
+    tools: ['DAX', 'Power Query (M)', 'Semantic models', 'RLS', 'Deployment pipelines'],
+    proof: '7+ years · dashboards used daily by 20+ stakeholders · 30% reporting-efficiency gain',
   },
   {
-    area: 'SQL & Data Modelling',
+    area: 'Advanced SQL & Warehouses',
     icon: 'fa-solid fa-database',
     level: 'Expert',
     pct: 92,
-    blurb: 'Query, tune and model relational data — stored procedures, views and star schemas built for reporting at scale.',
-    tools: ['T-SQL', 'SQL Server', 'PostgreSQL', 'Star schema'],
+    blurb: 'Query, tune and model relational data — CTEs and window functions over multi-million-row tables, plus views, stored procedures and star schemas.',
+    tools: ['Snowflake', 'Teradata', 'Azure SQL', 'T-SQL', 'BigQuery'],
     proof: '50+ tuned queries at UBS · star schema over 6.36M transactions',
   },
   {
-    area: 'MLOps & Production ML',
-    icon: 'fa-solid fa-gears',
-    level: 'Advanced',
-    pct: 86,
-    blurb: 'Ship models as versioned, monitored services — experiment tracking, retraining gates, containerised serving and orchestration.',
-    tools: ['MLflow', 'Docker', 'Kubernetes', 'Airflow', 'DVC'],
-    proof: '10 MLOps repositories · 132+ tests · champion gated at 0.8174 AUC',
-  },
-  {
-    area: 'Machine Learning & Data Science',
-    icon: 'fa-solid fa-brain',
-    level: 'Advanced',
-    pct: 84,
-    blurb: 'Frame the problem, engineer leakage-safe features, then tune and evaluate honestly — classification, forecasting and NLP.',
-    tools: ['scikit-learn', 'XGBoost', 'SHAP', 'Optuna', 'NLP'],
-    proof: '94.86% demand forecast · AUC 0.907 readmission model · 3,653 postings clustered',
-  },
-  {
-    area: 'Data Engineering & ETL',
+    area: 'Analytics Engineering',
     icon: 'fa-solid fa-diagram-project',
     level: 'Advanced',
-    pct: 78,
-    blurb: 'Move data reliably between systems — batch pipelines, transformation layers and automated extraction workflows.',
-    tools: ['dbt', 'Airflow', 'Talend', 'PySpark', 'Snowflake'],
-    proof: '16.5M events in 108s · 9.4M-row tested marts · ~8 hours/week saved',
+    pct: 84,
+    blurb: 'Build the transformation layer as tested code — staging, intermediate and mart models with data quality tests running inside the pipeline.',
+    tools: ['dbt', 'Dataform', 'Airflow', 'Kimball', 'BigQuery'],
+    proof: '9.4M-row dbt project under 15 tests · 16.5M events in 108s · ~8 hours/week saved',
   },
   {
-    area: 'Cloud & DevOps',
+    area: 'Data Quality & Governance',
+    icon: 'fa-solid fa-shield-halved',
+    level: 'Advanced',
+    pct: 82,
+    blurb: 'Treat data quality as a deliverable rather than a preamble — profiling, reconciliation and automated gates that fail a build instead of a dashboard.',
+    tools: ['Quality gates', 'Profiling', 'Data dictionaries', 'Lineage', 'GDPR'],
+    proof: '296,834 corrupted records recovered · 9 automated gates over 6.36M records',
+  },
+  {
+    area: 'Python & Statistics',
+    icon: 'fa-solid fa-brain',
+    level: 'Advanced',
+    pct: 80,
+    blurb: 'Automate the work and answer the harder questions — leakage-safe features, honest evaluation, regression, forecasting and experiment design.',
+    tools: ['pandas', 'scikit-learn', 'XGBoost', 'SHAP', 'pytest'],
+    proof: 'AUC 0.907 readmission model · £1.26M revenue exposure sized · 3,653 postings clustered',
+  },
+  {
+    area: 'Cloud, MLOps & Delivery',
     icon: 'fa-solid fa-cloud',
     level: 'Proficient',
     pct: 72,
-    blurb: 'Deploy and automate what I build — containerised services, managed runtimes and CI that runs the test suite on every push.',
-    tools: ['AWS', 'BigQuery', 'Snowflake', 'Databricks', 'GitHub Actions'],
-    proof: 'Snowflake, BigQuery & Databricks · CI/CD across the MLOps repos',
+    blurb: 'Ship and operate what I build — containerised services, managed runtimes, and Git-based delivery with reviewed pull requests and CI on every push.',
+    tools: ['MLflow', 'Docker', 'FastAPI', 'GitHub Actions', 'Databricks'],
+    proof: '10 MLOps repositories · 132+ tests · CI/CD across the portfolio',
   },
 ];
+
 
 /* Selected case studies — the flagship work, shown with the problem, the
    decision that mattered, and the outcome. These are deliberately richer than
@@ -565,6 +566,20 @@ function initTheme() {
     reflect(next);
     try { localStorage.setItem(STORAGE_KEY, next); } catch (e) { /* storage blocked; ignore */ }
   });
+
+  // Follow the OS switching light/dark mid-visit — but only until the visitor
+  // has made a choice of their own, which stays authoritative.
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  const onSystemChange = (e) => {
+    let saved = null;
+    try { saved = localStorage.getItem(STORAGE_KEY); } catch (_) { /* storage blocked */ }
+    if (saved) return;
+    const theme = e.matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+    reflect(theme);
+  };
+  if (mq.addEventListener) mq.addEventListener('change', onSystemChange);
+  else if (mq.addListener) mq.addListener(onSystemChange); // older Safari
 }
 
 /* ---------------------------------------------------------------------------
@@ -588,7 +603,11 @@ function initNav() {
 
   // Close after picking a destination, and on Escape.
   menu.addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !menu.classList.contains('is-open')) return;
+    close();
+    toggle.focus(); // don't strand focus inside the menu we just hid
+  });
 }
 
 /* ---------------------------------------------------------------------------

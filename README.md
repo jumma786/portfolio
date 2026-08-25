@@ -10,6 +10,8 @@ styles.css    Theme (light default / dark), layout, responsive rules
 script.js     Project + skills + stack data, featured/section rendering, filter, theme,
               nav, reveal, contact form, live repo count
 assets/       Your profile photo and CV PDF (see "Assets" below)
+robots.txt    Crawler policy; points at the sitemap
+sitemap.xml   Single-URL sitemap — bump `lastmod` by hand after a content change
 README.md     This file
 ```
 
@@ -85,10 +87,23 @@ Almost everything you'll want to change lives in **`script.js`**:
   To mark a repo **private**, drop the `url` and add `private: true`. The card
   renders a greyed-out "Private repo" badge instead of a link.
 
-- **Featured work** — the `FEATURED` array (just below `STACK`). Each entry is
-  `{ name, badge }`, where `name` must match a project's `name` exactly — the
-  card's details are pulled from `PROJECTS`, so there's a single source of truth.
-  Change the four names/badges to feature different projects.
+- **Case studies** — the `CASE_STUDIES` array drives the "Selected work"
+  section. Unlike the cards, each entry is self-contained, because the copy is
+  case-study narrative rather than card copy:
+
+  ```js
+  {
+    name: 'Title', badge: 'Category · Label',
+    metric: '108s', metricLabel: 'the one number a skim-reader takes away',
+    problem: '…', approach: '…', result: '…',
+    stack: ['Tech', 'Stack'],                 // also feed the search box
+    url: 'https://github.com/…',              // omit for a private repo
+  }
+  ```
+
+  The same repos also appear as cards in the grids below — that duplication is
+  deliberate. Keep the section's intro sentence in `index.html` in step with
+  the number of entries.
 
 - **Skills** — the `SKILLS` array drives the capability cards above the tech
   stack. Each entry is `{ area, icon, level, pct, blurb, tools, proof }`:
