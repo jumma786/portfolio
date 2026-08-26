@@ -52,7 +52,7 @@
        browser can start fetching them without waiting for styles.css to parse. -->
   <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
   />
   <link rel="stylesheet" href="styles.css" />
 
@@ -298,14 +298,53 @@
         <div class="about__grid about__grid--two">
           <div class="about__card">
             <h3>Education</h3>
+            <!--
+              Each entry links the certificate it claims. The PDFs in
+              assets/certificates/ are redacted copies — identifiers that serve
+              no purpose to a recruiter (registration and roll numbers, date of
+              birth, parents' names, photographs) are removed from the file
+              itself, not merely covered over.
+            -->
             <ul class="timeline">
               <li>
                 <span class="timeline__role">MSc Internet of Things and Future Networks (Merit) — Queen Mary University of London</span>
                 <span class="timeline__date">Sep 2023 – Sep 2024</span>
+                <span class="timeline__docs">
+                  <a class="doc-link" href="assets/certificates/msc-queen-mary-certificate.pdf" target="_blank" rel="noopener noreferrer" aria-label="MSc degree certificate, PDF, opens in a new tab">
+                    <i class="fa-solid fa-award" aria-hidden="true"></i> Certificate
+                  </a>
+                  <a class="doc-link" href="assets/certificates/msc-queen-mary-hear.pdf" target="_blank" rel="noopener noreferrer" aria-label="MSc transcript, Higher Education Achievement Report, PDF, opens in a new tab">
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Transcript
+                  </a>
+                </span>
               </li>
               <li>
                 <span class="timeline__role">BSc Information Technology (First Class) — Sabarmati University, India</span>
                 <span class="timeline__date">Sep 2012 – Jun 2015</span>
+                <span class="timeline__note">Certificate issued under the university's former name, Calorx Teachers' University, renamed Sabarmati University in 2019.</span>
+                <span class="timeline__docs">
+                  <a class="doc-link" href="assets/certificates/bsc-degree-certificate.pdf" target="_blank" rel="noopener noreferrer" aria-label="BSc degree certificate, PDF, opens in a new tab">
+                    <i class="fa-solid fa-award" aria-hidden="true"></i> Certificate
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class="timeline__role">Senior Secondary (Science), First Division — Board of Secondary Education, Rajasthan</span>
+                <span class="timeline__date">2012</span>
+                <span class="timeline__docs">
+                  <a class="doc-link" href="assets/certificates/class-12-certificate.pdf" target="_blank" rel="noopener noreferrer" aria-label="Senior Secondary certificate and mark sheet, PDF, opens in a new tab">
+                    <i class="fa-solid fa-award" aria-hidden="true"></i> Certificate
+                  </a>
+                </span>
+              </li>
+              <li>
+                <span class="timeline__role">Secondary, First Division — Board of Secondary Education, Rajasthan</span>
+                <span class="timeline__date">2010</span>
+                <span class="timeline__docs">
+                  <a class="doc-link" href="assets/certificates/class-10-certificate.pdf" target="_blank" rel="noopener noreferrer" aria-label="Secondary certificate and mark sheet, PDF, opens in a new tab">
+                    <i class="fa-solid fa-award" aria-hidden="true"></i> Certificate
+                  </a>
+                </span>
               </li>
             </ul>
           </div>

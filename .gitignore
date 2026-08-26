@@ -6,5 +6,8 @@ Desktop.ini
 .idea/
 .vscode/
 
-# Personal certificates / identity documents kept locally — never publish
+# Original certificates / identity documents stay local — never publish.
+# They carry registration and roll numbers, dates of birth, parents' names
+# and photographs. Only the redacted copies in assets/certificates/ — which
+# have those fields removed from the file, not merely covered — are served.
 /*.pdf

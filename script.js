@@ -557,13 +557,27 @@ function initTheme() {
     toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
   }
 
+  // Swap the theme with colour transitions suppressed for the frame in which
+  // it lands. Without this, any element that is off-screen when the attribute
+  // flips never receives the frames its background/border transition needs and
+  // keeps the old theme's colour until it is hovered or repainted — the case
+  // study, skill and project cards all stayed white on the dark page.
+  function setTheme(theme) {
+    root.setAttribute('data-theme-switching', '');
+    root.setAttribute('data-theme', theme);
+    void root.offsetWidth; // flush styles so the suppression rule takes effect
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => root.removeAttribute('data-theme-switching'));
+    });
+    reflect(theme);
+  }
+
   // The no-flash script in <head> already set data-theme; just mirror it here.
   reflect(root.getAttribute('data-theme') || 'light');
 
   toggle.addEventListener('click', () => {
     const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    reflect(next);
+    setTheme(next);
     try { localStorage.setItem(STORAGE_KEY, next); } catch (e) { /* storage blocked; ignore */ }
   });
 
@@ -574,9 +588,7 @@ function initTheme() {
     let saved = null;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch (_) { /* storage blocked */ }
     if (saved) return;
-    const theme = e.matches ? 'dark' : 'light';
-    root.setAttribute('data-theme', theme);
-    reflect(theme);
+    setTheme(e.matches ? 'dark' : 'light');
   };
   if (mq.addEventListener) mq.addEventListener('change', onSystemChange);
   else if (mq.addListener) mq.addListener(onSystemChange); // older Safari
