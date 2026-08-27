@@ -346,6 +346,142 @@ const CASE_STUDIES = [
 ];
 
 /* ---------------------------------------------------------------------------
+   1c. WRITING  — articles published on Medium
+
+   Newest first, which is also the order the section renders. Only the first
+   ARTICLES_VISIBLE rows show until the reader asks for the rest.
+
+   Entry shape:
+     {
+       title: "Display title",
+       date:  "2026-08-04",       // ISO; the row prints "04 Aug 2026"
+       mins:  13,                 // Medium's own read-time estimate
+       topic: "AI engineering",   // one short label, shown as the row tag
+       slug:  "medium-url-slug"   // appended to MEDIUM_PROFILE
+     }
+--------------------------------------------------------------------------- */
+const MEDIUM_PROFILE = 'https://medium.com/@jummamohammad477';
+const ARTICLES_VISIBLE = 10;
+
+const ARTICLES = [
+  {
+    title: 'I Gave an AI Access to a Real Database. Then I Spent Weeks Making Sure It Couldn’t Do Any Damage.',
+    date: '2026-08-04', mins: 13, topic: 'AI engineering',
+    slug: 'i-gave-an-ai-access-to-a-real-database-then-i-spent-weeks-making-sure-it-couldnt-do-any-damage-06cb7a73dbb5',
+  },
+  {
+    title: 'What the World Suddenly Cares About: Detecting Attention Spikes from Wikipedia Traffic',
+    date: '2026-07-30', mins: 8, topic: 'Analytics',
+    slug: 'what-the-world-suddenly-cares-about-detecting-attention-spikes-from-wikipedia-traffic-82b5f3870ed1',
+  },
+  {
+    title: 'I Built an Invoice-Finance Risk Monitor From a Public Retail Dataset — Here’s What I Learned About Exposure, Dilution, and Honest Prediction',
+    date: '2026-07-15', mins: 10, topic: 'Risk analytics',
+    slug: 'i-built-an-invoice-finance-risk-monitor-from-a-public-retail-dataset-heres-what-i-learned-about-08657f9142ea',
+  },
+  {
+    title: 'I Deliberately Shipped a Worse Model. Here’s Why It Made the Project.',
+    date: '2026-07-13', mins: 5, topic: 'Machine learning',
+    slug: 'i-deliberately-shipped-a-worse-model-heres-why-it-made-the-project-edb29497506b',
+  },
+  {
+    title: 'What 9.4 Million Taxi Trips Taught Me About Building a Pipeline That Won’t Lie to You',
+    date: '2026-07-13', mins: 6, topic: 'Data engineering',
+    slug: 'what-9-4-million-taxi-trips-taught-me-about-building-a-pipeline-that-wont-lie-to-you-3e07b7adf362',
+  },
+  {
+    title: 'What 41 Months of NHS Waiting-List Data Actually Tells Us',
+    date: '2026-06-26', mins: 5, topic: 'Public-sector data',
+    slug: 'what-41-months-of-nhs-waiting-list-data-actually-tells-us-b89c5021d7c1',
+  },
+  {
+    title: 'How AI Can Predict Road Collision Severity — And Why It Matters for UK Road Safety',
+    date: '2026-06-22', mins: 9, topic: 'Machine learning',
+    slug: 'how-ai-can-predict-road-collision-severity-and-why-it-matters-for-uk-road-safety-b6b2fcba2191',
+  },
+  {
+    title: 'Building a Complete End-to-End MLOps Platform Across 10 Production Projects',
+    date: '2026-06-16', mins: 5, topic: 'MLOps',
+    slug: 'building-a-complete-end-to-end-mlops-platform-across-10-production-projects-8df3d35fad93',
+  },
+  {
+    title: 'What 504 S&P 500 Stocks Taught Me About Analyst Ratings',
+    date: '2026-06-16', mins: 5, topic: 'Financial analysis',
+    slug: 'what-504-s-p-500-stocks-taught-me-about-analyst-ratings-4ddac48d1f97',
+  },
+  {
+    title: 'What 2,835 UK Data Job Postings Taught Me — About the Market, and About Doing Analysis Honestly',
+    date: '2026-06-15', mins: 6, topic: 'Analytics',
+    slug: 'what-2-835-uk-data-job-postings-taught-me-about-the-market-and-about-doing-analysis-honestly-8290f5079989',
+  },
+  {
+    title: 'Is the U.S. Investment Fund Industry Becoming More Concentrated? Insights from 17 Years of SEC Data',
+    date: '2026-06-15', mins: 5, topic: 'Financial analysis',
+    slug: 'is-the-u-s-investment-fund-industry-becoming-more-concentrated-insights-from-17-years-of-sec-data-877e13b08396',
+  },
+  {
+    title: 'Predicting Walking Speed Without a Camera — What Force Plates Reveal About Human Gait',
+    date: '2026-06-12', mins: 6, topic: 'Machine learning',
+    slug: 'predicting-walking-speed-without-a-camera-what-force-plates-reveal-about-human-gait-364e0c2052c0',
+  },
+  {
+    title: 'From Data Analyst to ML Engineer: How I Built a Production MLOps Portfolio in 10 Projects',
+    date: '2026-06-09', mins: 8, topic: 'MLOps',
+    slug: 'from-data-analyst-to-ml-engineer-how-i-built-a-production-mlops-portfolio-in-10-projects-92e042da5ade',
+  },
+  {
+    title: 'What I Learned Scraping 2,800 UK Data Job Postings (And Why the API Lied to Me)',
+    date: '2026-06-05', mins: 20, topic: 'Data engineering',
+    slug: 'what-i-learned-scraping-2-800-uk-data-job-postings-and-why-the-api-lied-to-me-b94ec1638450',
+  },
+  {
+    title: 'Transforming Energy Decision-Making Through Data: Building an End-to-End UK Electricity Demand Forecasting and Business Intelligence Solution',
+    date: '2026-06-05', mins: 6, topic: 'Machine learning',
+    slug: 'transforming-energy-decision-making-through-data-building-an-end-to-end-uk-electricity-demand-70219b63a481',
+  },
+  {
+    title: '10 Practical Data Science Skills I Built — And What They Actually Mean in the Real World',
+    date: '2026-06-02', mins: 7, topic: 'Craft',
+    slug: '10-practical-data-science-skills-i-built-and-what-they-actually-mean-in-the-real-world-0a3702b0cc74',
+  },
+  {
+    title: 'Building an Airline Operations Analytics Stack — and the Audit That Made It Necessary',
+    date: '2026-06-02', mins: 13, topic: 'Analytics',
+    slug: 'building-an-airline-operations-analytics-stack-and-the-audit-that-made-it-necessary-3abc792aa9ad',
+  },
+  {
+    title: 'The Silent Bug Hiding in Most ML APIs',
+    date: '2026-06-01', mins: 9, topic: 'MLOps',
+    slug: 'the-silent-bug-hiding-in-most-ml-apis-a812a844fa46',
+  },
+  {
+    title: 'I Built an End-to-End Hospital Analytics Project (SQL → Power BI → XGBoost)',
+    date: '2026-05-26', mins: 10, topic: 'Power BI',
+    slug: 'i-built-an-end-to-end-hospital-analytics-project-sql-power-bi-xgboost-6156aec27298',
+  },
+  {
+    title: 'The Dummy Classifier Beat My Random Forest. Here’s What I Learned.',
+    date: '2026-05-24', mins: 11, topic: 'Machine learning',
+    slug: 'the-dummy-classifier-beat-my-random-forest-heres-what-i-learned-426622f11f96',
+  },
+  {
+    title: 'How I Found a £3.7M Re-engagement Opportunity Hidden in 1 Million Retail Transactions',
+    date: '2026-05-23', mins: 5, topic: 'Analytics',
+    slug: 'how-i-found-a-3-7m-re-engagement-opportunity-hidden-in-1-million-retail-transactions-ca14bb92097a',
+  },
+  {
+    title: 'Building a Production-Grade PySpark Pipeline: A Practical Guide for Data Analysts',
+    date: '2026-05-19', mins: 15, topic: 'Data engineering',
+    slug: 'building-a-production-grade-pyspark-pipeline-a-practical-guide-for-data-analysts-9186dd67291b',
+  },
+  {
+    title: 'How I Built a Self-Updating Cloud Data Lake for $0 Using Python and GitHub Actions',
+    date: '2026-05-19', mins: 5, topic: 'Data engineering',
+    slug: 'how-i-built-a-self-updating-cloud-data-lake-for-0-using-python-and-github-actions-c5451301eacc',
+  },
+];
+
+/* ---------------------------------------------------------------------------
    2. HELPERS
 --------------------------------------------------------------------------- */
 
@@ -480,6 +616,86 @@ function renderSkills() {
       <p class="skill-card__proof">${esc(s.proof)}</p>
     </article>
   `).join('');
+}
+
+/** Render the writing index from ARTICLES.
+
+    An index, not a card grid: 25 rows of cards would swamp the projects above
+    them, and an article has no metric to lead with. Each row is a single link
+    — date, title, read time — so the eye can run down the titles alone.
+
+    Rows past ARTICLES_VISIBLE are rendered but hidden, so the "show all"
+    toggle is a class change rather than a re-render, and a browser find
+    (Ctrl+F) still misses them the same way it misses a filtered project. */
+function renderArticles() {
+  const host = document.getElementById('writingList');
+  if (!host) return;
+
+  const fmt = (iso) => {
+    const d = new Date(`${iso}T00:00:00Z`);
+    return {
+      label: d.toLocaleDateString('en-GB', {
+        day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC',
+      }),
+      attr: iso,
+    };
+  };
+
+  host.innerHTML = ARTICLES.map((a, idx) => {
+    const when = fmt(a.date);
+    const extra = idx >= ARTICLES_VISIBLE ? ' writing-item--overflow' : '';
+    return `
+      <li class="writing-item${extra}">
+        <a class="writing-item__link" href="${esc(MEDIUM_PROFILE)}/${esc(a.slug)}"
+           target="_blank" rel="noopener noreferrer">
+          <time class="writing-item__date" datetime="${esc(when.attr)}">${esc(when.label)}</time>
+          <span class="writing-item__title">${esc(a.title)}</span>
+          <span class="writing-item__meta">
+            <span class="writing-item__topic">${esc(a.topic)}</span>
+            <span class="writing-item__mins">${Number(a.mins)} min</span>
+            <i class="fa-solid fa-arrow-up-right-from-square writing-item__icon" aria-hidden="true"></i>
+          </span>
+        </a>
+      </li>
+    `;
+  }).join('');
+
+  initArticlesToggle(host);
+}
+
+/** Wire the "show all" toggle beneath the writing index.
+
+    Hidden when every article already fits, so the button never appears with
+    nothing to reveal. */
+function initArticlesToggle(host) {
+  const btn = document.getElementById('writingMore');
+  if (!btn) return;
+
+  const hiddenCount = ARTICLES.length - ARTICLES_VISIBLE;
+  if (hiddenCount <= 0) {
+    btn.hidden = true;
+    return;
+  }
+
+  const label = btn.querySelector('[data-writing-more-label]') || btn;
+  label.textContent = `Show all ${ARTICLES.length} articles`;
+
+  btn.addEventListener('click', () => {
+    const expanded = host.classList.toggle('is-expanded');
+    btn.setAttribute('aria-expanded', String(expanded));
+    label.textContent = expanded
+      ? 'Show fewer'
+      : `Show all ${ARTICLES.length} articles`;
+
+    // Collapsing from below the fold would otherwise leave the reader
+    // stranded in whitespace where the rows used to be.
+    if (!expanded) {
+      const top = host.getBoundingClientRect().top + window.scrollY;
+      const header = parseInt(getComputedStyle(document.documentElement)
+        .getPropertyValue('--header-h'), 10) || 66;
+      if (window.scrollY > top) window.scrollTo({ top: top - header - 24 });
+    }
+  });
 }
 
 /** Render the tech-stack section. */
@@ -776,6 +992,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCaseStudies();
   renderProjects();
   renderSkills();
+  renderArticles();
   renderStack();
   initFilter();
   initTheme();

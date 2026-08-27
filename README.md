@@ -7,8 +7,8 @@ No framework, no build step: just serve the files.
 ```
 index.html    Structure and content shell
 styles.css    Theme (light default / dark), layout, responsive rules
-script.js     Project + skills + stack data, featured/section rendering, filter, theme,
-              nav, reveal, contact form, live repo count
+script.js     Project + skills + stack + article data, featured/section rendering,
+              filter, theme, nav, reveal, contact form, live repo count
 assets/       Your profile photo and CV PDF (see "Assets" below)
 robots.txt    Crawler policy; points at the sitemap
 sitemap.xml   Single-URL sitemap — bump `lastmod` by hand after a content change
@@ -110,6 +110,24 @@ Almost everything you'll want to change lives in **`script.js`**:
   `level` is the label a reader sees and `pct` only sets the bar width, so keep
   the two in step (Expert ≈ 90+, Advanced ≈ 75–89, Proficient ≈ 60–74). `icon`
   is a Font Awesome class; `proof` is the evidence line under the divider.
+
+- **Writing** — the `ARTICLES` array drives the Medium index. Newest first;
+  the section renders in that order:
+
+  ```js
+  {
+    title: 'Article title',
+    date:  '2026-08-04',       // ISO; the row prints "04 Aug 2026"
+    mins:  13,                 // Medium's own read-time estimate
+    topic: 'AI engineering',   // one short label, shown as the row tag
+    slug:  'medium-url-slug',  // appended to MEDIUM_PROFILE
+  }
+  ```
+
+  `ARTICLES_VISIBLE` (default 10) sets how many rows show before the
+  "show all" toggle; the rest are rendered but hidden, so the toggle is a
+  class change rather than a re-render. Keep the section's intro sentence in
+  `index.html` in step with the number of entries.
 
 - **Tech stack** — the `STACK` array controls the grouped pill lists.
 
