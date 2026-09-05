@@ -570,12 +570,12 @@ function renderCaseStudies() {
           <span class="case-card__badge">${esc(c.badge)}</span>
         </div>
 
-        <h3 class="case-card__title">${esc(c.name)}</h3>
-
         <p class="case-card__metric">
           <span class="case-card__metric-value">${esc(c.metric)}</span>
           <span class="case-card__metric-label">${esc(c.metricLabel)}</span>
         </p>
+
+        <h3 class="case-card__title">${esc(c.name)}</h3>
 
         <dl class="case-card__body">
           <dt>Problem</dt><dd>${esc(c.problem)}</dd>
@@ -734,10 +734,15 @@ function initFilter() {
       if (match) visible += 1;
     });
 
-    // Hide a whole group when none of its cards are showing.
+    // Hide a whole group when none of its cards are showing, and state how
+    // many it holds — the count answers "how much is behind this heading?"
+    // before the reader scrolls, and follows the filter rather than sitting
+    // as a stale number in the markup.
     sections.forEach((section) => {
-      const anyVisible = section.querySelector('.card:not(.is-hidden)');
-      section.classList.toggle('is-empty', !anyVisible);
+      const shown = section.querySelectorAll('.card:not(.is-hidden)').length;
+      section.classList.toggle('is-empty', shown === 0);
+      const badge = section.querySelector('[data-group-count]');
+      if (badge) badge.textContent = String(shown).padStart(2, '0');
     });
 
     count.textContent = q ? `${visible} match${visible === 1 ? '' : 'es'}` : `${cards.length} projects`;

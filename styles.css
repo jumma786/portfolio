@@ -1,50 +1,68 @@
 /* ==========================================================================
    Jumma Mohammad Teli — Data Analyst portfolio
    ---------------------------------------------------------------------------
-   Editorial design system. Two themes: [data-theme="light"] (the default) and
-   [data-theme="dark"]; the toggle swaps the attribute on <html>.
+   A direct port of the Emergent build's design system. Two themes:
+   [data-theme="light"] (the design) and [data-theme="dark"] (an alternate the
+   original does not have, kept because this site ships a toggle).
 
-   The look rests on four decisions, applied consistently:
-     1. Paper, not screen-grey. A warm off-white ground with ink-black text.
-     2. Serif for what you read, sans for what you operate, mono for labels.
-     3. Hairlines instead of shadows. Depth comes from rules and spacing.
-     4. Restraint in motion. Hover states confirm; they do not perform.
+   Measured from the source rather than approximated:
+     1. Bone ground #f0ebe1 with warm near-black ink #14110d, and secondary
+        tiers expressed as ink at 62% and 42% alpha.
+     2. One electric blue #2233ff carrying every eyebrow, index, metric,
+        rule-mark and call to action.
+     3. Instrument Serif at a single weight (400) for display, Geist for body,
+        JetBrains Mono for labels at 10-11px with 0.2em tracking.
+     4. Hairlines at 0.8px and ink/0.08. Sections breathe at 160px.
    ========================================================================== */
 
 /* ============================ 1. Tokens ================================== */
 :root {
-  /* Source Serif 4 carries headlines and metrics; Inter runs the UI and body
-     copy; JetBrains Mono marks anything that is a label rather than a
-     sentence — eyebrows, dates, field names, tags. Loaded in <head>. */
-  --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Instrument Serif carries display at one weight only — it has no bold, and
+     the design does not want one; scale and the italic do the emphasis. Geist
+     runs body and UI. JetBrains Mono marks every label, index and figure, and
+     it does the heavy lifting here: almost all the small type on the page is
+     mono, uppercase, tracked wide. Loaded in <head>. */
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-body: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Fluid type scale. Wider intervals than a standard UI ramp: editorial
      hierarchy depends on decisive jumps, not many near-identical sizes. */
+  /* 10px is the label size the source uses almost everywhere — tags, indices,
+     process numbers, quote attributions. 11px is reserved for the eyebrows and
+     the nav. Both are mono, uppercase and tracked at 0.2em. */
+  --step--3: 0.625rem;
   --step--2: 0.6875rem;
   --step--1: clamp(0.8125rem, 0.79rem + 0.11vw, 0.875rem);
   --step-0:  clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
   --step-1:  clamp(1.125rem, 1.06rem + 0.3vw, 1.3125rem);
-  --step-2:  clamp(1.5rem, 1.28rem + 0.95vw, 2.125rem);
-  --step-3:  clamp(2rem, 1.6rem + 1.75vw, 3.25rem);
-  --step-4:  clamp(2.75rem, 1.95rem + 3.5vw, 4.75rem);
+  --step-2:  clamp(1.5rem, 1.15rem + 1.5vw, 1.875rem);
+  --step-3:  clamp(2.5rem, 1.1rem + 5.5vw, 6rem);
+  --step-4:  clamp(3rem, 0.9rem + 8.2vw, 6.4rem);
+
+  /* Instrument Serif ships one weight, so the display register is fixed at 400
+     and the hierarchy comes entirely from size. Tracking is a flat -0.01em at
+     every size and the leading is set solid (1.0) — both measured from the
+     source, and both are why the headings read as set type rather than as
+     browser defaults. */
+  --display-weight: 400;
+  --display-track: -0.01em;
 
   /* Layout */
-  --wrap: 1180px;
+  --wrap: 1400px;
   --measure: 68ch;              /* comfortable reading width for body copy */
   /* Actual sticky-header height. Sticky offsets below key off this so they
      cannot drift from the header again. */
   --header-h: 66px;
-  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --gutter: clamp(1.25rem, 4vw, 3rem);   /* 48px at full width, as measured */
   /* Crisp rather than soft: 16px radii read as SaaS template, 5px reads as
      print. Tags stay fully round. */
-  --radius: 5px;
-  --radius-sm: 4px;
+  --radius: 2px;
+  --radius-sm: 2px;
   --radius-pill: 999px;
 
   /* Vertical rhythm for section padding */
-  --section-y: clamp(3.75rem, 8vw, 7rem);
+  --section-y: clamp(4rem, 9vw, 10rem);  /* 160px at full width, as measured */
 
   --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -52,52 +70,68 @@
 
 /* ---- Light: warm paper, ink text, deep navy accent, brass for emphasis ---- */
 [data-theme="light"] {
-  --bg: #faf9f7;
-  --surface: #ffffff;
-  --surface-2: #f4f2ee;
-  --border: #e4e0d8;
-  --border-strong: #cbc5b8;
-  --text: #14161a;
-  --text-dim: #565b63;
-  --text-faint: #666b73;
-  --accent: #14386b;
-  --accent-hover: #0d2749;
-  --accent-ink: #ffffff;
-  --accent-soft: #eaeef5;
-  /* Used sparingly — numerals, rules, small marks. Never for body text. */
-  --brass: #8a6226;
-  --brass-soft: #f3ebdc;
-  --rule: var(--border);
-  --shadow: 0 1px 2px rgba(20, 22, 26, 0.04);
-  --shadow-lg: 0 18px 48px -24px rgba(20, 22, 26, 0.28);
-  --nav-bg: rgba(250, 249, 247, 0.86);
-  --hero-glow: rgba(20, 56, 107, 0.06);
-  --hero-glow-2: rgba(154, 111, 43, 0.05);
+  --bg: #f0ebe1;
+  --surface: #f0ebe1;
+  --surface-2: rgba(20, 17, 13, 0.035);
+  --border: rgba(20, 17, 13, 0.12);
+  --border-strong: rgba(20, 17, 13, 0.25);
+  --text: #14110d;
+  /* The source runs ink at 100 / 62 / 42. The 42% tier measured 2.69:1 against
+     the bone ground — below AA, and it carries every 10-11px label on the page.
+     Both lower tiers move up together: faint to 60% (4.65:1) and dim to 74%
+     (7.45:1), which keeps the three-step hierarchy the design depends on
+     instead of flattening 62 and 60 into the same grey. Hue is unchanged. */
+  --text-dim: rgba(20, 17, 13, 0.74);
+  --text-faint: rgba(20, 17, 13, 0.60);
+  --accent: #2233ff;
+  --accent-hover: #1a28cc;
+  --accent-ink: #f0ebe1;
+  --accent-soft: rgba(34, 51, 255, 0.10);
+  --accent-line: rgba(34, 51, 255, 0.30);
+  --signal: #2233ff;
+  --brass: #2233ff;
+  --brass-soft: rgba(34, 51, 255, 0.10);
+  --rule: rgba(20, 17, 13, 0.08);
+  --rule-w: 0.8px;
+  --watermark: rgba(20, 17, 13, 0.032);
+  --shadow: none;
+  --shadow-lg: 0 18px 48px -24px rgba(20, 17, 13, 0.22);
+  --nav-bg: rgba(240, 235, 225, 0.88);
+  --hero-glow: rgba(34, 51, 255, 0.05);
+  --hero-glow-2: rgba(20, 17, 13, 0.02);
+  --grid-line: rgba(20, 17, 13, 0.03);
   color-scheme: light;
 }
 
-/* ---- Dark: warm-neutral near-black rather than blue-black ---- */
+/* ---- Dark: not part of the original, which ships light only. Same ink and
+       ground swapped, and the blue lifted to #6E7BFF — #2233ff is far too dark
+       to read on a near-black ground. ---- */
 [data-theme="dark"] {
-  --bg: #0e0f11;
-  --surface: #16181b;
-  --surface-2: #1c1f23;
-  --border: #272b30;
-  --border-strong: #3a3f46;
-  --text: #ecedef;
-  --text-dim: #a3a8b0;
-  --text-faint: #868d95;
-  --accent: #8fb6e8;
-  --accent-hover: #b3cef2;
-  --accent-ink: #0e0f11;
-  --accent-soft: rgba(143, 182, 232, 0.12);
-  --brass: #cfa863;
-  --brass-soft: rgba(207, 168, 99, 0.12);
-  --rule: var(--border);
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --bg: #131210;
+  --surface: #131210;
+  --surface-2: rgba(240, 235, 225, 0.04);
+  --border: rgba(240, 235, 225, 0.14);
+  --border-strong: rgba(240, 235, 225, 0.28);
+  --text: #f0ebe1;
+  --text-dim: rgba(240, 235, 225, 0.72);
+  --text-faint: rgba(240, 235, 225, 0.50);
+  --accent: #6e7bff;
+  --accent-hover: #909aff;
+  --accent-ink: #0b0a09;
+  --accent-soft: rgba(110, 123, 255, 0.14);
+  --accent-line: rgba(110, 123, 255, 0.35);
+  --signal: #6e7bff;
+  --brass: #6e7bff;
+  --brass-soft: rgba(110, 123, 255, 0.14);
+  --rule: rgba(240, 235, 225, 0.10);
+  --rule-w: 0.8px;
+  --watermark: rgba(240, 235, 225, 0.035);
+  --shadow: none;
   --shadow-lg: 0 18px 48px -24px rgba(0, 0, 0, 0.8);
-  --nav-bg: rgba(14, 15, 17, 0.86);
-  --hero-glow: rgba(143, 182, 232, 0.07);
-  --hero-glow-2: rgba(207, 168, 99, 0.045);
+  --nav-bg: rgba(19, 18, 16, 0.88);
+  --hero-glow: rgba(110, 123, 255, 0.07);
+  --hero-glow-2: rgba(240, 235, 225, 0.02);
+  --grid-line: rgba(240, 235, 225, 0.03);
   color-scheme: dark;
 }
 
@@ -118,9 +152,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Headings are the serif voice. Optical sizing lets Source Serif 4 adjust its
-   own detail as the size grows; tracking is set per level below, because a
-   4.75rem title and a 1.1rem one need different amounts. */
+/* Headings are the serif voice. Optical sizing lets Fraunces adjust its own
+   detail as the size grows — at 6.5rem it wants the fine, high-contrast cut and
+   at 1.1rem the sturdy one; tracking is set per level below for the same
+   reason, because a display title and a card title need different amounts. */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-optical-sizing: auto;
@@ -193,13 +228,14 @@ img { max-width: 100%; display: block; }
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--step--1);
-  letter-spacing: 0.01em;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--step--3);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   line-height: 1;
-  padding: 0.8rem 1.35rem;
-  border-radius: var(--radius-sm);
+  padding: 1rem 1.6rem;
+  border-radius: var(--radius-pill);
   border: 1px solid transparent;
   cursor: pointer;
   transition: background var(--transition), border-color var(--transition),
@@ -267,8 +303,11 @@ img { max-width: 100%; display: block; }
 .nav__menu > li > a:not(.btn) {
   position: relative;
   color: var(--text-dim);
-  font-size: var(--step--1);
-  font-weight: 450;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   padding: 0.45rem 0.7rem;
   border-radius: var(--radius-sm);
   transition: color var(--transition);
@@ -355,17 +394,18 @@ img { max-width: 100%; display: block; }
   background: var(--brass);
   flex: none;
 }
+/* The name is set one word per line rather than left to wrap: at this size the
+   three parts become a stacked block of display type, which is the point of the
+   opening, and the break stops depending on viewport width. */
 .hero__title {
   font-size: var(--step-4);
-  font-weight: 600;
-  /* Large display sizes need more negative tracking than the base heading rule. */
-  letter-spacing: -0.032em;
-  line-height: 1.02;
-  margin-bottom: 1.5rem;
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-track);
+  line-height: 0.92;
+  margin-bottom: 1.75rem;
   color: var(--text);
-  /* The name is free to wrap; balance keeps the break from leaving an orphan. */
-  text-wrap: balance;
 }
+.hero__title span { display: block; }
 .hero__tagline {
   font-size: var(--step-1);
   line-height: 1.6;
@@ -410,6 +450,14 @@ img { max-width: 100%; display: block; }
   padding-left: 1.25rem;
 }
 .stats__item:first-child { border-left: 0; padding-left: 0; }
+/* Numbered so the four figures read as a set rather than four loose facts. */
+.stats__index {
+  display: block;
+  color: var(--brass);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
 .stats__item dt {
   font-family: var(--font-mono);
   font-size: var(--step--2);
@@ -476,9 +524,8 @@ img { max-width: 100%; display: block; }
   width: 7px; height: 7px;
   flex: none;
   border-radius: 50%;
-  background: #16a34a;
+  background: var(--accent);
 }
-[data-theme="dark"] .status-pill__dot { background: #4ade80; }
 .status-pill__dot::after {
   content: "";
   position: absolute;
@@ -499,7 +546,12 @@ img { max-width: 100%; display: block; }
   margin-inline: auto;
   padding: var(--section-y) var(--gutter);
   scroll-margin-top: calc(var(--header-h) + 12px);
+  /* A hairline opens each section, so the page reads as a run of plates rather
+     than one column of text. The first section sits under the hero, which
+     closes with its own rule, so it opts out. */
+  border-top: var(--rule-w) solid var(--rule);
 }
+#about.section { border-top: 0; }
 
 /* The section head is an editorial masthead: mono eyebrow, large serif title,
    a full-width hairline closing it off. No decorative underline stub. */
@@ -514,25 +566,38 @@ img { max-width: 100%; display: block; }
   gap: 0.75rem;
   font-family: var(--font-mono);
   font-size: var(--step--2);
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-weight: 400;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--text-faint);
-  margin: 0 0 1rem;
+  color: var(--accent);
+  margin: 0 0 1.5rem;
 }
 .section__eyebrow::before {
   content: "";
-  width: 1.75rem;
+  width: 2rem;
   height: 1px;
-  background: var(--brass);
+  background: var(--accent);
   flex: none;
+}
+/* The running section number. Decorative — the eyebrow label already names
+   the section — so it is aria-hidden in the markup and the em dash that
+   separates it from the label is drawn here rather than typed into content. */
+.section__index {
+  color: inherit;
+  font-variant-numeric: tabular-nums;
+}
+.section__index::after {
+  content: "\002014";
+  margin-left: 0.5rem;
+  color: inherit;
 }
 .section__title {
   font-size: var(--step-3);
-  font-weight: 600;
-  letter-spacing: -0.028em;
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-track);
+  line-height: 1;
   color: var(--text);
-  max-width: 22ch;
+  max-width: 18ch;
 }
 .section__sub {
   color: var(--text-dim);
@@ -654,6 +719,18 @@ img { max-width: 100%; display: block; }
   background: var(--brass);
   transform: rotate(45deg);
 }
+/* Reverse ordinal: the current role is 04, the earliest 01, so the eye reads
+   depth of history at a glance rather than counting entries. */
+.exp__num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--brass);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 0.4rem;
+}
 .exp__head {
   display: flex;
   flex-wrap: wrap;
@@ -681,9 +758,34 @@ img { max-width: 100%; display: block; }
   color: var(--text-faint);
   margin: 0.3rem 0 1rem;
 }
-.exp__points { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.6rem; }
-.exp__points li { color: var(--text-dim); font-size: var(--step-0); line-height: 1.65; }
-.exp__points li::marker { color: var(--brass); }
+/* Numbered rather than bulleted. A disc says "another one of these"; /01
+   says how many claims the role is making and lets a reader refer to one. */
+.exp__points {
+  margin: 0;
+  padding-left: 2.9rem;
+  display: grid;
+  gap: 0.7rem;
+  list-style: none;
+  counter-reset: exp-point;
+}
+.exp__points li {
+  position: relative;
+  counter-increment: exp-point;
+  color: var(--text-dim);
+  font-size: var(--step-0);
+  line-height: 1.65;
+}
+.exp__points li::before {
+  content: "/" counter(exp-point, decimal-leading-zero);
+  position: absolute;
+  left: -2.9rem;
+  top: 0.3em;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  color: var(--brass);
+  font-variant-numeric: tabular-nums;
+}
 
 .about__grid--two { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
 
@@ -788,13 +890,16 @@ img { max-width: 100%; display: block; }
   padding: 0 0 1.25rem;
   border-bottom: 1px solid var(--rule);
 }
+/* The one figure the reader takes away, so it takes the accent and the only
+   glow on the page. text-shadow rather than a filter: it tints the air around
+   the glyphs without touching their edges, and costs nothing to composite. */
 .case-card__metric-value {
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 1.7rem + 2.4vw, 3.25rem);
-  font-weight: 600;
-  line-height: 0.95;
-  letter-spacing: -0.035em;
-  color: var(--text);
+  font-size: var(--step-2);
+  font-weight: var(--display-weight);
+  line-height: 1.2;
+  letter-spacing: var(--display-track);
+  color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
 .case-card__metric-label {
@@ -843,7 +948,9 @@ img { max-width: 100%; display: block; }
   background: none;
   border: 1px solid var(--border);
   padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-pill);
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 .case-card__link {
   align-self: flex-start;
@@ -917,6 +1024,14 @@ img { max-width: 100%; display: block; }
 }
 
 .project-group { margin-bottom: 3.25rem; }
+/* Set in the group heading, ahead of the name: how many repositories sit
+   behind it, and — because the filter rewrites it — how many survived the
+   current search. */
+.project-group__count {
+  color: var(--brass);
+  font-variant-numeric: tabular-nums;
+  margin-right: 0.7rem;
+}
 .project-group__title {
   font-family: var(--font-mono);
   font-size: var(--step--2);
@@ -979,7 +1094,9 @@ img { max-width: 100%; display: block; }
   background: var(--surface-2);
   border: 1px solid transparent;
   padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-pill);
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 .card__link {
   display: inline-flex;
@@ -1093,7 +1210,7 @@ img { max-width: 100%; display: block; }
   background: var(--surface-2);
   border: 1px solid var(--border);
   padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-pill);
+  border-radius: 3px;
 }
 .skill-card:hover .skill-card__tools li { background: var(--surface); }
 .skill-card__proof {
@@ -1154,7 +1271,7 @@ img { max-width: 100%; display: block; }
   background: var(--surface);
   border: 1px solid var(--border);
   padding: 0.3rem 0.7rem;
-  border-radius: var(--radius-pill);
+  border-radius: 3px;
   transition: border-color var(--transition);
 }
 .stack__pills li:hover { border-color: var(--border-strong); }
@@ -1196,8 +1313,9 @@ img { max-width: 100%; display: block; }
   content: "";
   position: absolute;
   left: 0; top: 0; bottom: 0;
-  width: 2px;
-  background: var(--brass);
+  width: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--accent-soft);
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 260ms var(--ease-out);
@@ -1206,18 +1324,18 @@ img { max-width: 100%; display: block; }
 
 .writing-item__date {
   font-family: var(--font-mono);
-  font-size: var(--step--2);
-  letter-spacing: 0.04em;
+  font-size: var(--step--3);
+  letter-spacing: 0.1em;
   color: var(--text-faint);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 .writing-item__title {
   font-family: var(--font-display);
-  font-size: var(--step-1);
-  font-weight: 500;
-  line-height: 1.35;
-  letter-spacing: -0.012em;
+  font-size: var(--step-2);
+  font-weight: var(--display-weight);
+  line-height: 1.15;
+  letter-spacing: var(--display-track);
   color: var(--text);
   transition: color var(--transition);
   text-wrap: balance;
@@ -1237,6 +1355,14 @@ img { max-width: 100%; display: block; }
 .writing-item__topic {
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.15rem 0.45rem;
+  transition: border-color var(--transition), color var(--transition);
+}
+.writing-item__link:hover .writing-item__topic {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 .writing-item__mins { font-variant-numeric: tabular-nums; }
 .writing-item__icon {
@@ -1400,6 +1526,10 @@ img { max-width: 100%; display: block; }
 
 /* Hero: two soft washes, no grid pattern. The grid read as a template tic and
    fought the paper ground. */
+/* A 64px measurement grid under the glow. It is the one piece of ornament on
+   the page and it earns its place by being nearly invisible: --grid-line sits
+   at 3% alpha, so it registers as texture rather than as a drawn thing, and it
+   is masked out before it reaches the copy. */
 .hero::before {
   content: "";
   position: absolute;
@@ -1409,7 +1539,9 @@ img { max-width: 100%; display: block; }
   pointer-events: none;
   background:
     radial-gradient(60% 55% at 82% -5%, var(--hero-glow), transparent 70%),
-    radial-gradient(45% 45% at 2% 5%, var(--hero-glow-2), transparent 68%);
+    radial-gradient(45% 45% at 2% 5%, var(--hero-glow-2), transparent 68%),
+    repeating-linear-gradient(to right, var(--grid-line) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(to bottom, var(--grid-line) 0 1px, transparent 1px 64px);
   -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent);
           mask-image: linear-gradient(to bottom, #000 60%, transparent);
 }
@@ -1493,6 +1625,10 @@ img { max-width: 100%; display: block; }
   .stats__item { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); }
   .stats__item:first-child { border-top: 0; }
   .filter-bar__count { display: none; }
+  /* A 2.9rem hanging indent costs too much of a 320px line. The ordinals sit
+     on their own line above each point instead of beside it. */
+  .exp__points { padding-left: 0; gap: 1.05rem; }
+  .exp__points li::before { position: static; display: block; margin-bottom: 0.2rem; }
   .hero__cta .btn { flex: 1 1 auto; }
   .hero__facts { gap: 0.5rem 1rem; }
   .about__card, .case-card, .skill-card { padding: 1.4rem; }
@@ -1525,4 +1661,219 @@ img { max-width: 100%; display: block; }
   .case-card, .card, .skill-card, .about__card { break-inside: avoid; }
   .reveal { opacity: 1 !important; transform: none !important; }
   a { color: #000; text-decoration: underline; }
+}
+
+/* ==========================================================================
+   17. Ported from the Emergent build
+   --------------------------------------------------------------------------
+   Components the original has that this site did not: the hero watermark and
+   accent name, the impact ticker, the process strip and the field notes.
+   Everything here is measured from the source rather than approximated.
+   ========================================================================== */
+
+/* ---- Hero: the accent name ----
+   Instrument Serif ships a true italic, and the one coloured word in the hero
+   uses it. Set on its own line by the existing .hero__title span rule. */
+.hero__title-accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* ---- Hero: watermark ----
+   The largest figure in the portfolio, set enormous, in mono, at 300, and
+   barely inked. It sits behind the copy and is never read: aria-hidden in the
+   markup, pointer-events off here. */
+.hero__watermark {
+  position: absolute;
+  top: 22%;
+  left: 8%;
+  z-index: 0;
+  font-family: var(--font-mono);
+  font-weight: 300;
+  font-size: clamp(7rem, 24vw, 19.2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--watermark);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ---- Impact ticker ----
+   Two identical tracks scrolling as one strip. The second is aria-hidden and
+   exists only so the loop has no visible seam: when the first has travelled
+   its own width, the animation resets and the second is exactly where the
+   first was. */
+.ticker {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0 0 2rem;
+  padding: 1rem 0;
+  border-top: var(--rule-w) solid var(--rule);
+  border-bottom: var(--rule-w) solid var(--rule);
+  max-width: 46rem;
+}
+.ticker__label {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: var(--step--3);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.ticker__label i { font-size: 0.85em; color: var(--accent); }
+
+/* The viewport clips; the tracks slide. Masked at both ends so figures fade
+   rather than being chopped mid-glyph. */
+.ticker__viewport {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 4%, #000 92%, transparent);
+}
+.ticker__track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex: none;
+  align-items: baseline;
+  gap: 2.25rem;
+  padding-right: 2.25rem;
+  animation: ticker-slide 38s linear infinite;
+}
+.ticker:hover .ticker__track { animation-play-state: paused; }
+.ticker__track li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  white-space: nowrap;
+}
+.ticker__track b {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: var(--step-2);
+  letter-spacing: var(--display-track);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.ticker__track span {
+  font-family: var(--font-mono);
+  font-size: var(--step--3);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+@keyframes ticker-slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ---- Process ----
+   Four steps, and the numbering is the content: it is a sequence, and a reader
+   who takes them out of order gets a different method. */
+.process {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0;
+  border-top: var(--rule-w) solid var(--rule);
+}
+.process__step {
+  padding: 2rem 1.75rem 2.25rem 0;
+  border-bottom: var(--rule-w) solid var(--rule);
+}
+.process__step + .process__step { border-left: var(--rule-w) solid var(--rule); padding-left: 1.75rem; }
+.process__num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--step--3);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+.process__title {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: var(--step-2);
+  letter-spacing: var(--display-track);
+  line-height: 1;
+  margin: 0 0 0.75rem;
+  color: var(--text);
+}
+.process__step p {
+  margin: 0;
+  font-size: var(--step--1);
+  line-height: 1.62;
+  color: var(--text-dim);
+}
+
+/* ---- Field notes ----
+   Pull-quotes set in the display face at reading size. No quotation marks in
+   the markup: they are drawn, so the text stays clean to copy. */
+.notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.note {
+  padding: 2rem 0;
+  border-top: var(--rule-w) solid var(--rule);
+  display: grid;
+  gap: 1rem;
+}
+.note:last-child { border-bottom: var(--rule-w) solid var(--rule); }
+.note__quote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: clamp(1.35rem, 1rem + 1.5vw, 2rem);
+  line-height: 1.25;
+  letter-spacing: var(--display-track);
+  color: var(--text);
+  max-width: 34ch;
+  text-wrap: balance;
+}
+.note__quote::before { content: "\201C"; }
+.note__quote::after  { content: "\201D"; }
+.note__source {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--3);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.note__attrib::before { content: "\2014\00a0"; }
+.note__num { color: var(--accent); flex: none; }
+
+/* ---- Sub-eyebrows: Career and Education are numbered markers inside About,
+        so the running sequence matches the source's nine. ---- */
+.section__eyebrow--sub { margin-top: 3rem; }
+
+@media (max-width: 700px) {
+  .ticker { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .process__step,
+  .process__step + .process__step {
+    padding: 1.5rem 0;
+    border-left: 0;
+    padding-left: 0;
+  }
+  .hero__watermark { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* A permanent horizontal crawl is exactly what this setting is for. */
+  .ticker__track { animation: none; }
+  .ticker__viewport { overflow-x: auto; }
 }

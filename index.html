@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://jumma786.github.io/portfolio/" />
 
   <!-- Inline SVG favicon: "JT" monogram matching the nav brand mark. No extra file. -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e40af'/%3E%3Ctext x='50%25' y='50%25' dy='.35em' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-weight='700' font-size='30' fill='%23ffffff'%3EJT%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232233ff'/%3E%3Ctext x='50%25' y='50%25' dy='.35em' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-weight='700' font-size='30' fill='%23f0ebe1'%3EJT%3C/text%3E%3C/svg%3E" />
 
   <!-- Link previews (LinkedIn, Slack, X). Scrapers require absolute URLs. -->
   <meta property="og:type" content="website" />
@@ -31,9 +31,10 @@
     (function () {
       try {
         var saved = localStorage.getItem('jt-theme');
-        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        // Light is the polished default; only go dark on an explicit saved choice or system preference.
-        document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+        // Light is the design: the bone ground, the electric blue and the serif
+        // display were all set against paper, and dark is the alternate.
+        // Only an explicit saved choice overrides it.
+        document.documentElement.setAttribute('data-theme', saved || 'light');
       } catch (e) { /* keep the data-theme="light" already on <html> */ }
     })();
   </script>
@@ -52,7 +53,7 @@
        browser can start fetching them without waiting for styles.css to parse. -->
   <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
   />
   <link rel="stylesheet" href="styles.css" />
 
@@ -151,48 +152,78 @@
   <main id="main">
     <!-- ===== Hero ===== -->
     <section class="hero" id="home" aria-labelledby="hero-title">
+      <span class="hero__watermark" aria-hidden="true">16.5M</span>
       <div class="hero__inner">
         <div class="hero__intro reveal">
-          <p class="hero__eyebrow">Data Analyst — Power BI &amp; Advanced SQL</p>
-          <h1 class="hero__title" id="hero-title">Jumma Mohammad Teli</h1>
+          <p class="hero__eyebrow">Portfolio · 2026 Edition</p>
+          <!-- The middle name carries the whole colour statement of the page:
+               one word, italic, in the accent. Nothing else in the hero is
+               coloured, which is what makes it land. -->
+          <h1 class="hero__title" id="hero-title">
+            <span>Jumma</span><span class="hero__title-accent">Mohammad</span><span>Teli.</span>
+          </h1>
           <p class="hero__tagline">
             Seven years turning large, awkward datasets into reporting a business actually
-            decides on — currently at UBS. Advanced Power BI and SQL across Snowflake and
-            Teradata, with the transformation layer built in dbt and data quality treated as a
-            deliverable: one audit recovered 296,834 records a silent ETL fault had corrupted
-            while every dashboard still looked healthy.
+            decides on — currently at UBS. <strong>Advanced Power BI, SQL across Snowflake and
+            Teradata, dbt transformation layers,</strong> and data quality treated as a
+            deliverable.
           </p>
 
+          <!--
+            Impact ticker. Six figures pulled from the case studies below,
+            marqueed as one continuous strip. The list is duplicated and marked
+            aria-hidden so the loop has no seam; a screen reader reads the six
+            once. Honours prefers-reduced-motion by simply stopping.
+          -->
+          <div class="ticker" aria-label="Impact at a glance">
+            <span class="ticker__label" aria-hidden="true">Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+            <div class="ticker__viewport">
+              <ul class="ticker__track">
+                <li><b>$11.98B</b><span>Exposure surfaced</span></li>
+                <li><b>108s</b><span>Attribution runtime</span></li>
+                <li><b>£1.26M</b><span>Revenue exposure sized</span></li>
+                <li><b>94.86%</b><span>Forecast accuracy</span></li>
+                <li><b>6.36M</b><span>Rows validated</span></li>
+                <li><b>296,834</b><span>Records recovered</span></li>
+              </ul>
+              <ul class="ticker__track" aria-hidden="true">
+                <li><b>$11.98B</b><span>Exposure surfaced</span></li>
+                <li><b>108s</b><span>Attribution runtime</span></li>
+                <li><b>£1.26M</b><span>Revenue exposure sized</span></li>
+                <li><b>94.86%</b><span>Forecast accuracy</span></li>
+                <li><b>6.36M</b><span>Rows validated</span></li>
+                <li><b>296,834</b><span>Records recovered</span></li>
+              </ul>
+            </div>
+          </div>
+
           <div class="hero__cta">
-            <a class="btn btn--primary" href="assets/Jumma-Mohammad-Teli-CV.pdf" download>
+            <a class="btn btn--primary" href="#case-studies">
+              View selected work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn--outline" href="assets/Jumma-Mohammad-Teli-CV.pdf" download>
               <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
-            </a>
-            <a class="btn btn--outline" href="#case-studies">
-              <i class="fa-solid fa-diagram-project" aria-hidden="true"></i> View work
-            </a>
-            <a class="btn btn--ghost" href="https://github.com/jumma786" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
             </a>
           </div>
 
           <!-- Stats banner -->
           <dl class="stats" aria-label="At a glance">
             <div class="stats__item">
-              <dt>Public repositories</dt><dd id="repoCount">104</dd>
+              <dt><span class="stats__index" aria-hidden="true">/01</span>Public repositories</dt><dd id="repoCount">104</dd>
             </div>
             <div class="stats__item">
-              <dt>Years in data</dt><dd>7+</dd>
+              <dt><span class="stats__index" aria-hidden="true">/02</span>Years in data</dt><dd>7+</dd>
             </div>
             <div class="stats__item">
-              <dt>Largest pipeline</dt><dd>16.5M events</dd>
+              <dt><span class="stats__index" aria-hidden="true">/03</span>Largest pipeline</dt><dd>16.5M events</dd>
             </div>
             <div class="stats__item">
-              <dt>MLOps tests passing</dt><dd>132+</dd>
+              <dt><span class="stats__index" aria-hidden="true">/04</span>MLOps tests passing</dt><dd>132+</dd>
             </div>
           </dl>
           <p class="status-pill">
             <span class="status-pill__dot" aria-hidden="true"></span>
-            Open to Data Analyst &amp; Analytics Engineer roles — UK
+            Open to UK roles
           </p>
           <ul class="hero__facts" aria-label="Availability">
             <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Birmingham, UK — open to relocation &amp; hybrid</li>
@@ -220,8 +251,8 @@
     <!-- ===== About ===== -->
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="section__head reveal">
-        <p class="section__eyebrow">Profile</p>
-        <h2 class="section__title" id="about-title">About</h2>
+        <p class="section__eyebrow"><span class="section__index" aria-hidden="true">01</span>Profile</p>
+        <h2 class="section__title" id="about-title">A practitioner,<br />not a headline.</h2>
       </div>
       <div class="about reveal">
         <p class="about__lead">
@@ -237,9 +268,11 @@
         </p>
 
         <!-- Experience timeline -->
+        <p class="section__eyebrow section__eyebrow--sub"><span class="section__index" aria-hidden="true">02</span>Career</p>
         <h3 class="about__subtitle">Experience</h3>
         <ol class="experience">
           <li class="exp__item">
+            <span class="exp__num" aria-hidden="true">04</span>
             <div class="exp__head">
               <span class="exp__role">Data Analyst · UBS</span>
               <span class="exp__date">Oct 2024 – Present</span>
@@ -256,6 +289,7 @@
             </ul>
           </li>
           <li class="exp__item">
+            <span class="exp__num" aria-hidden="true">03</span>
             <div class="exp__head">
               <span class="exp__role">Data Analyst · IT Skills</span>
               <span class="exp__date">Oct 2023 – Oct 2024</span>
@@ -270,6 +304,7 @@
             </ul>
           </li>
           <li class="exp__item">
+            <span class="exp__num" aria-hidden="true">02</span>
             <div class="exp__head">
               <span class="exp__role">Data Analyst · Skyway Internet Services</span>
               <span class="exp__date">Apr 2019 – Jul 2023</span>
@@ -284,6 +319,7 @@
             </ul>
           </li>
           <li class="exp__item">
+            <span class="exp__num" aria-hidden="true">01</span>
             <div class="exp__head">
               <span class="exp__role">IT Technician · Border Security Force (BSF)</span>
               <span class="exp__date">Apr 2016 – Jan 2019</span>
@@ -299,6 +335,7 @@
         <!-- Education + Certifications -->
         <div class="about__grid about__grid--two">
           <div class="about__card">
+            <p class="section__eyebrow section__eyebrow--sub"><span class="section__index" aria-hidden="true">03</span>Education</p>
             <h3>Education</h3>
             <!--
               Each entry links the certificate it claims. The PDFs in
@@ -351,27 +388,90 @@
       </div>
     </section>
 
+    <!-- ===== Process (interstitial: unnumbered in the running sequence) ===== -->
+    <section class="section section--process" id="process" aria-labelledby="process-title">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Process</p>
+        <h2 class="section__title" id="process-title">How the work actually lands.</h2>
+      </div>
+      <ol class="process reveal">
+        <li class="process__step">
+          <span class="process__num" aria-hidden="true">/01</span>
+          <h3 class="process__title">Frame.</h3>
+          <p>The question worth answering, stated in the language a decision-maker uses.</p>
+        </li>
+        <li class="process__step">
+          <span class="process__num" aria-hidden="true">/02</span>
+          <h3 class="process__title">Model.</h3>
+          <p>A schema, a metric or an experiment — chosen for the tradeoff, not the trend.</p>
+        </li>
+        <li class="process__step">
+          <span class="process__num" aria-hidden="true">/03</span>
+          <h3 class="process__title">Verify.</h3>
+          <p>Reconciled against source. Tests inside the pipeline, gates in CI, not after the fact.</p>
+        </li>
+        <li class="process__step">
+          <span class="process__num" aria-hidden="true">/04</span>
+          <h3 class="process__title">Ship.</h3>
+          <p>Delivered as reporting, an API, a document — with the assumptions left visible.</p>
+        </li>
+      </ol>
+    </section>
+
     <!-- ===== Featured work (rendered by script.js from PROJECTS) ===== -->
     <section class="section section--cases" id="case-studies" aria-labelledby="cases-title">
       <div class="section__head reveal">
-        <p class="section__eyebrow">Selected work</p>
-        <h2 class="section__title" id="cases-title">Case studies</h2>
+        <p class="section__eyebrow"><span class="section__index" aria-hidden="true">04</span>Selected work</p>
+        <h2 class="section__title" id="cases-title">Case studies.</h2>
         <p class="section__sub">
-          Nine pieces of work at the scale and rigour I'd bring to your team — each with the
-          problem, the decision that actually mattered, and the number it moved. Every one links
-          to the code.
+          Nine pieces of work at the scale and rigour I'd bring to your team — problem, the
+          decision that mattered, and the number it moved.
         </p>
       </div>
       <div class="case-grid" id="caseGrid"></div>
     </section>
 
+    <!-- ===== Field notes (interstitial: unnumbered) ===== -->
+    <section class="section section--notes" id="field-notes" aria-labelledby="notes-title">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Interlude — Field notes</p>
+        <h2 class="section__title" id="notes-title">A working philosophy.</h2>
+        <p class="section__sub">
+          Lines pulled from articles I've written about the work — the sentences I find myself
+          repeating in reviews, in stand-ups, and to the future me who might otherwise cut a corner.
+        </p>
+      </div>
+      <ol class="notes reveal">
+        <li class="note">
+          <blockquote class="note__quote">A broken upstream assumption normally reaches a dashboard before anyone notices — by which point someone has already made a decision on it.</blockquote>
+          <p class="note__source"><span class="note__attrib">On pipeline reliability</span><span class="note__num" aria-hidden="true">/01</span></p>
+        </li>
+        <li class="note">
+          <blockquote class="note__quote">Verifying what a system actually does, instead of trusting what it claims.</blockquote>
+          <p class="note__source"><span class="note__attrib">On the fraud-audit case</span><span class="note__num" aria-hidden="true">/02</span></p>
+        </li>
+        <li class="note">
+          <blockquote class="note__quote">The refusal path is the part that has to be right.</blockquote>
+          <p class="note__source"><span class="note__attrib">On safe database agents</span><span class="note__num" aria-hidden="true">/03</span></p>
+        </li>
+        <li class="note">
+          <blockquote class="note__quote">A migration is only finished when you can prove the target holds the same data as the source — not when the load script exits zero.</blockquote>
+          <p class="note__source"><span class="note__attrib">On warehouse migrations</span><span class="note__num" aria-hidden="true">/04</span></p>
+        </li>
+        <li class="note">
+          <blockquote class="note__quote">Being confidently wrong is the expensive failure mode.</blockquote>
+          <p class="note__source"><span class="note__attrib">On forecasting</span><span class="note__num" aria-hidden="true">/05</span></p>
+        </li>
+      </ol>
+    </section>
+
     <!-- ===== All projects: search / filter ===== -->
     <section class="section section--projects" id="projects" aria-labelledby="projects-title">
       <div class="section__head reveal">
-        <p class="section__eyebrow">Portfolio</p>
-        <h2 class="section__title" id="projects-title">All projects</h2>
+        <p class="section__eyebrow"><span class="section__index" aria-hidden="true">05</span>The full library</p>
+        <h2 class="section__title" id="projects-title">All projects.</h2>
         <p class="section__sub">
-          Filter by keyword or tech across every repository.
+          Filter across every repository by keyword or tech.
           <a href="https://github.com/jumma786/mlops-portfolio" target="_blank" rel="noopener noreferrer">MLOps index</a>
           ·
           <a href="https://github.com/jumma786/mlops-portfolio-dashboard" target="_blank" rel="noopener noreferrer">Dashboard</a>
@@ -401,47 +501,47 @@
 
       <!-- Project sections (grids rendered by script.js) -->
       <div class="project-group reveal" data-project-section>
-        <h3 class="project-group__title" id="mlops">Production ML &amp; MLOps</h3>
+        <h3 class="project-group__title" id="mlops"><span class="project-group__count" data-group-count aria-hidden="true"></span>Production ML &amp; MLOps</h3>
         <div class="card-grid" data-grid="mlops"></div>
       </div>
 
       <div class="project-group reveal" data-project-section>
-        <h3 class="project-group__title" id="ml">Machine Learning &amp; Data Science</h3>
+        <h3 class="project-group__title" id="ml"><span class="project-group__count" data-group-count aria-hidden="true"></span>Machine Learning &amp; Data Science</h3>
         <div class="card-grid" data-grid="ml"></div>
       </div>
 
       <div class="project-group reveal" data-project-section>
-        <h3 class="project-group__title" id="analytics">End-to-End Analytics</h3>
+        <h3 class="project-group__title" id="analytics"><span class="project-group__count" data-group-count aria-hidden="true"></span>End-to-End Analytics</h3>
         <div class="card-grid" data-grid="analytics"></div>
       </div>
 
       <div class="project-group reveal" data-project-section>
-        <h3 class="project-group__title" id="bi">Power BI, Tableau &amp; BI</h3>
+        <h3 class="project-group__title" id="bi"><span class="project-group__count" data-group-count aria-hidden="true"></span>Power BI, Tableau &amp; BI</h3>
         <div class="card-grid" data-grid="bi"></div>
       </div>
 
       <div class="project-group reveal" data-project-section>
-        <h3 class="project-group__title" id="sql">SQL Projects</h3>
+        <h3 class="project-group__title" id="sql"><span class="project-group__count" data-group-count aria-hidden="true"></span>SQL Projects</h3>
         <div class="card-grid" data-grid="sql"></div>
       </div>
 
       <div class="project-group reveal" data-project-section>
-        <h3 class="project-group__title" id="engineering">Data Engineering &amp; ETL</h3>
+        <h3 class="project-group__title" id="engineering"><span class="project-group__count" data-group-count aria-hidden="true"></span>Data Engineering &amp; ETL</h3>
         <div class="card-grid" data-grid="engineering"></div>
       </div>
 
       <div class="project-group reveal" data-project-section>
-        <h3 class="project-group__title" id="apps">Web Apps, APIs &amp; Portfolios</h3>
+        <h3 class="project-group__title" id="apps"><span class="project-group__count" data-group-count aria-hidden="true"></span>Web Apps, APIs &amp; Portfolios</h3>
         <div class="card-grid" data-grid="apps"></div>
       </div>
 
       <div class="project-group reveal" data-project-section>
-        <h3 class="project-group__title" id="utilities">Python Utilities &amp; Fundamentals</h3>
+        <h3 class="project-group__title" id="utilities"><span class="project-group__count" data-group-count aria-hidden="true"></span>Python Utilities &amp; Fundamentals</h3>
         <div class="card-grid" data-grid="utilities"></div>
       </div>
 
       <div class="project-group reveal" data-project-section>
-        <h3 class="project-group__title" id="learning">Learning &amp; Coursework</h3>
+        <h3 class="project-group__title" id="learning"><span class="project-group__count" data-group-count aria-hidden="true"></span>Learning &amp; Coursework</h3>
         <div class="card-grid" data-grid="learning"></div>
       </div>
 
@@ -453,8 +553,8 @@
     <!-- ===== Writing (index rendered by script.js from ARTICLES) ===== -->
     <section class="section section--writing" id="writing" aria-labelledby="writing-title">
       <div class="section__head reveal">
-        <p class="section__eyebrow">Writing</p>
-        <h2 class="section__title" id="writing-title">Articles</h2>
+        <p class="section__eyebrow"><span class="section__index" aria-hidden="true">06</span>On the page</p>
+        <h2 class="section__title" id="writing-title">Writing.</h2>
         <p class="section__sub">
           Twenty-three pieces published on Medium since May 2026 — mostly write-ups of the work
           above, including the ones where the honest answer was that the simple model won.
@@ -475,8 +575,8 @@
     <!-- ===== Skills (rendered by script.js from SKILLS) ===== -->
     <section class="section" id="skills" aria-labelledby="skills-title">
       <div class="section__head reveal">
-        <p class="section__eyebrow">Capabilities</p>
-        <h2 class="section__title" id="skills-title">Skills</h2>
+        <p class="section__eyebrow"><span class="section__index" aria-hidden="true">07</span>Capabilities</p>
+        <h2 class="section__title" id="skills-title">Skills, with evidence.</h2>
         <p class="section__sub">Core capability areas, with the evidence behind each. The full tool list follows below.</p>
       </div>
       <div class="skills reveal" id="skillsGrid"></div>
@@ -485,7 +585,7 @@
     <!-- ===== Tech stack ===== -->
     <section class="section" id="stack" aria-labelledby="stack-title">
       <div class="section__head reveal">
-        <p class="section__eyebrow">Tooling</p>
+        <p class="section__eyebrow"><span class="section__index" aria-hidden="true">08</span>Tech stack</p>
         <h2 class="section__title" id="stack-title">Tech stack</h2>
       </div>
       <div class="stack reveal" id="stackGroups"></div>
@@ -494,8 +594,8 @@
     <!-- ===== Contact ===== -->
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="section__head reveal">
-        <p class="section__eyebrow">Get in touch</p>
-        <h2 class="section__title" id="contact-title">Contact</h2>
+        <p class="section__eyebrow"><span class="section__index" aria-hidden="true">09</span>Get in touch</p>
+        <h2 class="section__title" id="contact-title">Let’s talk_</h2>
       </div>
 
       <div class="contact reveal">
