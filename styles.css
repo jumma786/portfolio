@@ -1277,7 +1277,7 @@ img { max-width: 100%; display: block; }
 .stack__pills li:hover { border-color: var(--border-strong); }
 
 /* ============================ 11b. Writing ============================ */
-/* An index rather than a card grid. Twenty-five cards would out-shout the
+/* An index rather than a card grid. Twenty-six cards would out-shout the
    case studies above them, and an article has no metric to lead with — so
    each piece gets one hairline-separated row: date, title, read time. The
    titles line up in a single column so the eye can run straight down them. */

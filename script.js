@@ -58,6 +58,8 @@ const PROJECTS = {
 
   analytics: [
     { name: 'Enterprise DWH Analytics', highlight: '6.36M financial transactions · fraud recall exposed at 0.19%.', tags: ['Kimball', 'Teradata', '6.36M rows'], url: 'https://github.com/jumma786/enterprise-dwh-analytics' },
+    { name: 'Wealth KPI Engine', highlight: '20 tests · AUM, AUMA, NNM, fee yield and retention grounded in ONS + BoE public series.', tags: ['Wealth analytics', 'ONS', 'BoE', '20 tests'], url: 'https://github.com/jumma786/wealth-kpi-engine' },
+    { name: 'UK BBSI Tax Reporting Pipeline', highlight: '34 tests · HMRC public statistics, exception queues and a £0.03 reconciliation residual.', tags: ['HMRC', 'Tax reporting', 'Reconciliation', '34 tests'], url: 'https://github.com/jumma786/uk-bbsi-tax-reporting-pipeline' },
     { name: 'SaaS Subscription Metrics', highlight: 'ARR, NRR and GRR retention analysis in Python and SQL.', tags: ['SaaS metrics', 'SQL', 'Retention'], url: 'https://github.com/jumma786/saas-subscription-metrics' },
     { name: 'GA4 Demo Account Analysis', highlight: 'BigQuery SQL against the public GA4 export schema (UNNEST event_params).', tags: ['GA4', 'BigQuery', 'SQL'], url: 'https://github.com/jumma786/ga4-demo-account-analysis' },
     { name: 'Market Sizing — TAM/SAM/SOM', highlight: 'Top-down and bottom-up sizing cross-checked against each other.', tags: ['Market sizing', 'Case study'], url: 'https://github.com/jumma786/market-sizing-tam-sam-som' },
@@ -106,6 +108,7 @@ const PROJECTS = {
 
   engineering: [
     { name: 'Teradata → Snowflake Rebuild', highlight: '6.36M-row warehouse migrated · DDL translation and load validation.', tags: ['Snowflake', 'Teradata', 'Migration'], url: 'https://github.com/jumma786/snowflake-dwh-rebuild' },
+    { name: 'MLOps Infrastructure as Code', highlight: 'Terraform approval gate for Azure Container Apps with immutable image tags and OIDC.', tags: ['Terraform', 'Azure', 'GitHub Actions', 'IaC'], url: 'https://github.com/jumma786/mlops-iac-terraform' },
     { name: 'OpenMetadata Data Catalogue', highlight: 'Catalog and business glossary (MRR/ARR/NRR/GRR) over a real dataset.', tags: ['OpenMetadata', 'Governance', 'Lineage'], url: 'https://github.com/jumma786/data-cataloguing-openmetadata' },
     { name: 'PySpark Sales Analysis', highlight: '11 modules · 24-test pytest suite.', tags: ['PySpark', 'Databricks', 'pytest'], url: 'https://github.com/jumma786/pyspark-sales-analysis' },
     { name: 'NYC Taxi dbt', highlight: 'dbt transformation project on NYC taxi data.', tags: ['dbt', 'SQL', 'Warehouse'], url: 'https://github.com/jumma786/nyc_taxi_dbt' },
@@ -364,6 +367,21 @@ const MEDIUM_PROFILE = 'https://medium.com/@jummamohammad477';
 const ARTICLES_VISIBLE = 10;
 
 const ARTICLES = [
+  {
+    title: 'Building a UK BBSI Reporting Pipeline That Refuses to Plug the Difference',
+    date: '2026-09-05', mins: 8, topic: 'Regulatory reporting',
+    slug: 'building-a-uk-bbsi-reporting-pipeline-that-refuses-to-plug-the-difference-5f92b86e6946',
+  },
+  {
+    title: 'Building a Wealth KPI Engine That Explains Growth Instead of Just Reporting It',
+    date: '2026-09-05', mins: 7, topic: 'Wealth analytics',
+    slug: 'building-a-wealth-kpi-engine-that-explains-growth-instead-of-just-reporting-it-782a6c7ca375',
+  },
+  {
+    title: 'Infrastructure as Code',
+    date: '2026-09-02', mins: 7, topic: 'MLOps infrastructure',
+    slug: 'infrastructure-as-code-583bd28b92bf',
+  },
   {
     title: 'I Gave an AI Access to a Real Database. Then I Spent Weeks Making Sure It Couldn’t Do Any Damage.',
     date: '2026-08-04', mins: 13, topic: 'AI engineering',

@@ -127,7 +127,7 @@ Almost everything you'll want to change lives in **`script.js`**:
   `ARTICLES_VISIBLE` (default 10) sets how many rows show before the
   "show all" toggle; the rest are rendered but hidden, so the toggle is a
   class change rather than a re-render. Keep the section's intro sentence in
-  `index.html` in step with the number of entries.
+  `index.html` in step with the number of entries (currently 26).
 
 - **Tech stack** — the `STACK` array controls the grouped pill lists.
 
