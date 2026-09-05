@@ -163,7 +163,7 @@ const STACK = [
   { group: 'Data Quality & Governance', items: ['Validation', 'Profiling', 'Reconciliation', 'Automated quality gates', 'Data dictionaries', 'Lineage', 'GDPR', 'FCA'] },
   { group: 'Other BI & Visualisation', items: ['Tableau', 'Streamlit', 'Plotly', 'Matplotlib', 'Seaborn', 'GeoPandas', 'Amazon QuickSight', 'Looker (LookML)', 'Omni', 'Qlik Sense', 'SSRS', 'Cognos', 'Excel (VBA, Power Pivot)'] },
   { group: 'Languages & Analysis', items: ['Python', 'pandas', 'NumPy', 'SciPy', 'scikit-learn', 'XGBoost', 'LightGBM', 'CatBoost', 'PySpark', 'UMAP', 'HDBSCAN', 'NLP', 'pytest', 'R', 'Regression', 'Forecasting', 'A/B Testing'] },
-  { group: 'ETL & Orchestration', items: ['Apache Airflow', 'Apache Kafka', 'Confluent Kafka', 'KRaft', 'Talend', 'SSIS', 'dlt', 'Databricks', 'OpenMetadata'] },
+  { group: 'ETL & Orchestration', items: ['Apache Airflow', 'Talend', 'SSIS', 'dlt', 'Databricks', 'OpenMetadata'] },
   { group: 'Automation & Delivery', items: ['Power Automate', 'UiPath RPA', 'Azure DevOps', 'Terraform', 'Azure Container Apps', 'Cloud Run', 'OIDC', 'Managed Identity', 'Helm', 'Prometheus', 'HPA', 'Docker Compose', 'Render', 'Scheduled jobs', 'Git', 'GitHub Actions CI/CD', 'Pull requests'] },
   { group: 'ML, AI & MLOps', items: ['MLflow', 'DVC', 'Optuna', 'SHAP', 'LightGBM', 'CatBoost', 'LangGraph', 'LangChain', 'RAG', 'ChromaDB', 'Redis', 'Docker', 'Kubernetes', 'FastAPI', 'Pydantic', 'Drift detection'] },
   { group: 'Web & Data Products', items: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Supabase', 'Framer Motion'] },
