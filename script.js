@@ -23,7 +23,7 @@
 --------------------------------------------------------------------------- */
 const PROJECTS = {
   mlops: [
-    { name: 'MLOps Portfolio — Overview', highlight: 'Umbrella repo tying the 10 MLOps projects together.', tags: ['MLOps', 'CI/CD', 'Docker'], url: 'https://github.com/jumma786/mlops-portfolio' },
+    { name: 'MLOps Portfolio — Overview', highlight: 'Umbrella repo for the MLOps project series and its delivery patterns.', tags: ['MLOps', 'CI/CD', 'Docker'], url: 'https://github.com/jumma786/mlops-portfolio' },
     { name: 'MLOps Knowledge-Graph Dashboard', highlight: 'Interactive knowledge-graph view of the MLOps portfolio.', tags: ['Dashboard', 'Knowledge graph'], url: 'https://github.com/jumma786/mlops-portfolio-dashboard' },
     { name: 'Multi-Model Tournament Pipeline', highlight: '13/13 tests · model tournament across gradient-boosting families.', tags: ['MLflow', 'XGBoost', 'LightGBM', 'CatBoost'], url: 'https://github.com/jumma786/mlops-model-tournament' },
     { name: 'Scheduled Retraining + DVC', highlight: '11/11 tests · champion gate on scheduled retraining runs.', tags: ['DVC', 'MLflow', 'Champion gate'], url: 'https://github.com/jumma786/mlops-retraining-pipeline' },
@@ -227,7 +227,7 @@ const SKILLS = [
     pct: 72,
     blurb: 'Ship and operate what I build — containerised services, managed runtimes, and Git-based delivery with reviewed pull requests and CI on every push.',
     tools: ['MLflow', 'Docker', 'FastAPI', 'GitHub Actions', 'Databricks'],
-    proof: '10 MLOps repositories · 132+ tests · CI/CD across the portfolio',
+    proof: '11 MLOps repositories · 132+ tests · CI/CD across the portfolio',
   },
 ];
 
@@ -309,7 +309,7 @@ const CASE_STUDIES = [
     metricLabel: 'champion AUC, auto-selected',
     problem: 'Picking a model by eye and promoting it by hand is how an unreproducible champion ends up in production.',
     approach: 'A five-algorithm tournament — LogReg, Random Forest, XGBoost, LightGBM, CatBoost — auto-selecting a champion by AUC with the leakage-prone field removed, tracked in MLflow and gated in CI on a metric threshold.',
-    result: '0.8174 AUC at 86.66% accuracy, promoted only when the gate passes. Sits inside a ten-repository MLOps portfolio covering feature stores, drift detection, A/B routing and Kubernetes serving.',
+    result: '0.8174 AUC at 86.66% accuracy, promoted only when the gate passes. Sits inside the MLOps portfolio covering feature stores, drift detection, A/B routing and Kubernetes serving.',
     stack: ['MLflow', 'XGBoost', 'LightGBM', 'CatBoost', 'GitHub Actions'],
     url: 'https://github.com/jumma786/mlops-model-tournament',
   },
