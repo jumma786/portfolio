@@ -11,3 +11,6 @@ Desktop.ini
 # and photographs. Only the redacted copies in assets/certificates/ — which
 # have those fields removed from the file, not merely covered — are served.
 /*.pdf
+
+# Claude Code: the dev-server config is shared, local MCP/tool prefs are not.
+.claude/settings.local.json
