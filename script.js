@@ -111,6 +111,7 @@ const PROJECTS = {
     { name: 'MLOps Infrastructure as Code', highlight: 'Terraform approval gate for Azure Container Apps with immutable image tags and OIDC.', tags: ['Terraform', 'Azure', 'GitHub Actions', 'IaC'], url: 'https://github.com/jumma786/mlops-iac-terraform' },
     { name: 'OpenMetadata Data Catalogue', highlight: 'Catalog and business glossary (MRR/ARR/NRR/GRR) over a real dataset.', tags: ['OpenMetadata', 'Governance', 'Lineage'], url: 'https://github.com/jumma786/data-cataloguing-openmetadata' },
     { name: 'PySpark Sales Analysis', highlight: '11 modules · 24-test pytest suite.', tags: ['PySpark', 'Databricks', 'pytest'], url: 'https://github.com/jumma786/pyspark-sales-analysis' },
+    { name: 'PySpark UK Property Analytics', highlight: '5.5GB HM Land Registry pipeline · partitioned Parquet, window functions and benchmarks.', tags: ['PySpark', 'HM Land Registry', 'Parquet', 'Benchmarks'], url: 'https://github.com/jumma786/pyspark-uk-property-analytics' },
     { name: 'NYC Taxi dbt', highlight: 'dbt transformation project on NYC taxi data.', tags: ['dbt', 'SQL', 'Warehouse'], url: 'https://github.com/jumma786/nyc_taxi_dbt' },
     { name: 'Movie ETL — Talend', highlight: 'ETL pipeline built in Talend.', tags: ['Talend', 'ETL'], url: 'https://github.com/jumma786/movie-etl-talend' },
     { name: 'Cloud Weather Project', highlight: 'MSc group project (4 contributors) · cloud-based weather data app.', tags: ['Cloud', 'ETL'], url: 'https://github.com/jumma786/cloud-weather-project' },
@@ -157,15 +158,16 @@ const PROJECTS = {
 /* Tech-stack groups */
 const STACK = [
   { group: 'Power BI', items: ['DAX', 'Power Query (M)', 'Semantic models', 'Deployment pipelines', 'Gateways', 'Row-Level Security', 'Dataflows', 'Shared datasets'] },
-  { group: 'SQL & Warehouses', items: ['Advanced SQL', 'Snowflake', 'Teradata', 'Azure SQL', 'SQL Server / T-SQL', 'BigQuery', 'PostgreSQL', 'MySQL', 'CTEs & window functions', 'Stored procedures', 'Query tuning'] },
-  { group: 'Transformation & Modelling', items: ['dbt', 'Dataform', 'Kimball star schemas', 'Fact/dimension grain', 'Incremental models', 'Data quality tests'] },
+  { group: 'SQL & Warehouses', items: ['Advanced SQL', 'Snowflake', 'Teradata', 'Azure SQL', 'SQL Server / T-SQL', 'BigQuery', 'PostgreSQL', 'MySQL', 'DuckDB', 'SQLite', 'SQLAlchemy', 'CTEs & window functions', 'Stored procedures', 'Query tuning'] },
+  { group: 'Transformation & Modelling', items: ['dbt', 'Dataform', 'Kimball star schemas', 'Fact/dimension grain', 'Incremental models', 'Data quality tests', 'PyArrow', 'Parquet'] },
   { group: 'Data Quality & Governance', items: ['Validation', 'Profiling', 'Reconciliation', 'Automated quality gates', 'Data dictionaries', 'Lineage', 'GDPR', 'FCA'] },
-  { group: 'Other BI & Visualisation', items: ['Tableau', 'Amazon QuickSight', 'Looker (LookML)', 'Omni', 'Qlik Sense', 'SSRS', 'Cognos', 'Excel (VBA, Power Pivot)'] },
-  { group: 'Languages & Analysis', items: ['Python', 'pandas', 'NumPy', 'scikit-learn', 'XGBoost', 'PySpark', 'pytest', 'R', 'Regression', 'Forecasting', 'A/B Testing'] },
-  { group: 'ETL & Orchestration', items: ['Apache Airflow', 'Talend', 'SSIS', 'dlt', 'Databricks', 'OpenMetadata'] },
-  { group: 'Automation & Delivery', items: ['Power Automate', 'UiPath RPA', 'Azure DevOps', 'Scheduled jobs', 'Git', 'GitHub Actions CI/CD', 'Pull requests'] },
-  { group: 'ML & MLOps', items: ['MLflow', 'DVC', 'Optuna', 'SHAP', 'Docker', 'Kubernetes', 'FastAPI', 'Drift detection'] },
-  { group: 'Business & Ways of Working', items: ['AUM/AUMA', 'Client retention', 'Cohort analysis', 'KPI frameworks', 'Requirements & UAT', 'Agile/Scrum', 'JIRA', 'Confluence', 'Salesforce', 'GA4', 'Microsoft Fabric'] },
+  { group: 'Other BI & Visualisation', items: ['Tableau', 'Streamlit', 'Plotly', 'Matplotlib', 'Seaborn', 'GeoPandas', 'Amazon QuickSight', 'Looker (LookML)', 'Omni', 'Qlik Sense', 'SSRS', 'Cognos', 'Excel (VBA, Power Pivot)'] },
+  { group: 'Languages & Analysis', items: ['Python', 'pandas', 'NumPy', 'SciPy', 'scikit-learn', 'XGBoost', 'LightGBM', 'CatBoost', 'PySpark', 'UMAP', 'HDBSCAN', 'NLP', 'pytest', 'R', 'Regression', 'Forecasting', 'A/B Testing'] },
+  { group: 'ETL & Orchestration', items: ['Apache Airflow', 'Apache Kafka', 'Confluent Kafka', 'KRaft', 'Talend', 'SSIS', 'dlt', 'Databricks', 'OpenMetadata'] },
+  { group: 'Automation & Delivery', items: ['Power Automate', 'UiPath RPA', 'Azure DevOps', 'Terraform', 'Azure Container Apps', 'Cloud Run', 'OIDC', 'Managed Identity', 'Helm', 'Prometheus', 'HPA', 'Docker Compose', 'Render', 'Scheduled jobs', 'Git', 'GitHub Actions CI/CD', 'Pull requests'] },
+  { group: 'ML, AI & MLOps', items: ['MLflow', 'DVC', 'Optuna', 'SHAP', 'LightGBM', 'CatBoost', 'LangGraph', 'LangChain', 'RAG', 'ChromaDB', 'Redis', 'Docker', 'Kubernetes', 'FastAPI', 'Pydantic', 'Drift detection'] },
+  { group: 'Web & Data Products', items: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Supabase', 'Framer Motion'] },
+  { group: 'Business & Ways of Working', items: ['AUM/AUMA', 'Client retention', 'Cohort analysis', 'KPI frameworks', 'Requirements & UAT', 'Agile/Scrum', 'JIRA', 'Confluence', 'Salesforce', 'GA4', 'ONS', 'Bank of England', 'HMRC', 'HM Land Registry', 'BTS', 'Microsoft Fabric'] },
 ];
 
 /* Skills — capability areas shown as cards above the tech stack.
@@ -199,7 +201,7 @@ const SKILLS = [
     level: 'Advanced',
     pct: 84,
     blurb: 'Build the transformation layer as tested code — staging, intermediate and mart models with data quality tests running inside the pipeline.',
-    tools: ['dbt', 'Dataform', 'Airflow', 'Kimball', 'BigQuery'],
+    tools: ['dbt', 'Dataform', 'Airflow', 'PySpark', 'Parquet'],
     proof: '9.4M-row dbt project under 15 tests · 16.5M events in 108s · ~8 hours/week saved',
   },
   {
@@ -217,7 +219,7 @@ const SKILLS = [
     level: 'Advanced',
     pct: 80,
     blurb: 'Automate the work and answer the harder questions — leakage-safe features, honest evaluation, regression, forecasting and experiment design.',
-    tools: ['pandas', 'scikit-learn', 'XGBoost', 'SHAP', 'pytest'],
+    tools: ['pandas', 'scikit-learn', 'XGBoost', 'LightGBM', 'CatBoost', 'UMAP', 'HDBSCAN'],
     proof: 'AUC 0.907 readmission model · £1.26M revenue exposure sized · 3,653 postings clustered',
   },
   {
@@ -226,8 +228,17 @@ const SKILLS = [
     level: 'Proficient',
     pct: 72,
     blurb: 'Ship and operate what I build — containerised services, managed runtimes, and Git-based delivery with reviewed pull requests and CI on every push.',
-    tools: ['MLflow', 'Docker', 'FastAPI', 'GitHub Actions', 'Databricks'],
+    tools: ['MLflow', 'Docker', 'FastAPI', 'Terraform', 'Azure', 'GitHub Actions'],
     proof: '11 MLOps repositories · 132+ tests · CI/CD across the portfolio',
+  },
+  {
+    area: 'Data Apps & AI Interfaces',
+    icon: 'fa-solid fa-window-maximize',
+    level: 'Proficient',
+    pct: 70,
+    blurb: 'Turn analytical logic into usable products — Streamlit interfaces, FastAPI services and guarded natural-language access to data through LangGraph and RAG.',
+    tools: ['Streamlit', 'FastAPI', 'LangGraph', 'RAG', 'React', 'Next.js'],
+    proof: '133-test read-only SQL agent · deployed APIs · public web applications',
   },
 ];
 
