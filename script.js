@@ -551,20 +551,33 @@ function findProject(name) {
 --------------------------------------------------------------------------- */
 
 /** Build one standard card element from a project object. */
-function buildCard(p) {
+function buildCard(p, group = '') {
   const isPrivate = p.private || !p.url;
   const article = document.createElement('article');
   article.className = 'card';
 
   // Searchable text lives on the element so filtering is a simple string test.
-  article.dataset.search = [p.name, p.highlight, ...(p.tags || [])].join(' ').toLowerCase();
+  const groupLabels = {
+    mlops: 'machine learning mlops data engineering',
+    ml: 'machine learning data science',
+    analytics: 'data analysis business analytics financial analytics',
+    bi: 'power bi tableau dashboard data analysis',
+    sql: 'sql data analysis',
+    engineering: 'data engineering etl spark',
+    apps: 'python web app api',
+    utilities: 'python utility',
+    learning: 'coursework learning',
+  };
+  article.dataset.search = [p.name, p.highlight, ...(p.tags || []), groupLabels[group] || group]
+    .join(' ').toLowerCase();
+  article.dataset.projectName = p.name;
 
   const tags = (p.tags || []).map((t) => `<li>${esc(t)}</li>`).join('');
   const action = isPrivate
     ? `<span class="card__badge" aria-label="Private repository">
          <i class="fa-solid fa-lock" aria-hidden="true"></i> Private repo
        </span>`
-    : `<a class="card__link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">
+    : `<a class="card__link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" data-track="github-click">
          <i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub
        </a>`;
 
@@ -583,7 +596,7 @@ function renderProjects() {
     const grid = document.querySelector(`[data-grid="${key}"]`);
     if (!grid) return;
     const frag = document.createDocumentFragment();
-    list.forEach((p) => frag.appendChild(buildCard(p)));
+    list.forEach((p) => frag.appendChild(buildCard(p, key)));
     grid.appendChild(frag);
   });
 }
@@ -600,7 +613,7 @@ function renderCaseStudies() {
     const num = String(idx + 1).padStart(2, '0');
     const stack = (c.stack || []).map((t) => `<li>${esc(t)}</li>`).join('');
     const action = c.url
-      ? `<a class="case-card__link" href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">
+      ? `<a class="case-card__link" href="${esc(c.url)}" target="_blank" rel="noopener noreferrer" data-track="github-click">
            <i class="fa-brands fa-github" aria-hidden="true"></i> Read the code
            <i class="fa-solid fa-arrow-right case-card__arrow" aria-hidden="true"></i>
          </a>`
@@ -757,6 +770,82 @@ function renderStack() {
   `).join('');
 }
 
+/** Render a small, static GitHub evidence strip without adding API latency. */
+function renderGitHubEvidence() {
+  const host = document.getElementById('githubEvidence');
+  if (!host) return;
+  const featured = [
+    ['AI Data Analysis Agent', 'LangGraph · FastAPI · RAG', '133 tests'],
+    ['Teradata → Snowflake Rebuild', 'Snowflake · Teradata · SQL', '6.36M rows'],
+    ['PySpark UK Property Analytics', 'PySpark · Parquet · HM Land Registry', '5.5GB'],
+    ['Marketing Attribution — 16.5M Events', 'Markov chains · Shapley · dbt', '108s run'],
+  ];
+  host.innerHTML = featured.map(([name, stack, proof]) => {
+    const project = findProject(name);
+    if (!project || !project.url) return '';
+    return `<a class="github-evidence__item" href="${esc(project.url)}" target="_blank" rel="noopener noreferrer" data-track="github-click">
+      <span><strong>${esc(name)}</strong><small>${esc(stack)}</small></span>
+      <em>${esc(proof)}</em>
+    </a>`;
+  }).join('');
+}
+
+/** Keep the assistant deterministic: it searches the published project data only. */
+function initPortfolioAssistant() {
+  const input = document.getElementById('portfolioQuestion');
+  const ask = document.getElementById('portfolioAsk');
+  const answer = document.getElementById('portfolioAnswer');
+  if (!input || !ask || !answer) return;
+
+  const all = Object.values(PROJECTS).flat();
+  const search = (term) => {
+    const raw = term.trim().toLowerCase();
+    const aliases = [
+      ['power bi', 'power bi'],
+      ['snowflake', 'snowflake'],
+      ['sql', 'sql'],
+      ['python', 'python'],
+      ['etl', 'etl'],
+      ['large dataset', '16.5m'],
+      ['dataset size', '16.5m'],
+      ['machine learning', 'machine learning'],
+    ];
+    const q = aliases.find(([phrase]) => raw.includes(phrase))?.[1] || raw;
+    if (!q) return [];
+    const results = all.filter((p) => [p.name, p.highlight, ...(p.tags || [])].join(' ').toLowerCase().includes(q));
+    return results.slice(0, 6);
+  };
+
+  function render(term) {
+    const results = search(term);
+    if (!results.length) {
+      answer.innerHTML = `<span class="ask-answer__empty">No published project matches “${esc(term)}”. Try SQL, Python, Power BI, Snowflake, ETL or a dataset size.</span>`;
+      return;
+    }
+    answer.innerHTML = `<p class="ask-answer__summary">${results.length} matching project${results.length === 1 ? '' : 's'} from the portfolio data:</p>
+      <ul>${results.map((p) => `<li><a href="${esc(p.url || '#')}" ${p.url ? 'target="_blank" rel="noopener noreferrer" data-track="github-click"' : ''}>${esc(p.name)}</a><span>${esc(p.highlight)}</span></li>`).join('')}</ul>`;
+  }
+
+  const run = () => render(input.value);
+  ask.addEventListener('click', run);
+  input.addEventListener('keydown', (event) => { if (event.key === 'Enter') run(); });
+  document.querySelectorAll('[data-question]').forEach((button) => button.addEventListener('click', () => {
+    input.value = button.dataset.question;
+    run();
+  }));
+}
+
+/** Privacy-conscious analytics hook: emits no identifiers and has no provider. */
+function initAnalyticsHooks() {
+  document.addEventListener('click', (event) => {
+    const target = event.target.closest('[data-track]');
+    if (!target) return;
+    window.dispatchEvent(new CustomEvent('portfolio:interaction', {
+      detail: { action: target.dataset.track, path: window.location.pathname },
+    }));
+  });
+}
+
 /* ---------------------------------------------------------------------------
    4. SEARCH / FILTER  (project sections only)
 --------------------------------------------------------------------------- */
@@ -766,6 +855,7 @@ function initFilter() {
   const count = document.getElementById('filterCount');
   const noResults = document.getElementById('noResults');
   const noResultsClear = document.getElementById('noResultsClear');
+  const chips = Array.from(document.querySelectorAll('[data-filter]'));
   const cards = Array.from(document.querySelectorAll('.card-grid .card'));
   const sections = Array.from(document.querySelectorAll('[data-project-section]'));
 
@@ -793,6 +883,7 @@ function initFilter() {
     count.textContent = q ? `${visible} match${visible === 1 ? '' : 'es'}` : `${cards.length} projects`;
     clearBtn.hidden = !q;
     noResults.hidden = visible !== 0;
+    chips.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.filter.toLowerCase() === q));
   }
 
   function reset() {
@@ -804,8 +895,15 @@ function initFilter() {
   input.addEventListener('input', () => apply(input.value));
   clearBtn.addEventListener('click', reset);
   noResultsClear.addEventListener('click', reset);
+  chips.forEach((chip) => chip.addEventListener('click', () => {
+    input.value = chip.dataset.filter;
+    apply(input.value);
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
 
-  apply(''); // set the initial count
+  const initial = new URLSearchParams(window.location.search).get('filter') || '';
+  input.value = initial;
+  apply(initial); // set the initial count
 }
 
 /* ---------------------------------------------------------------------------
@@ -1044,7 +1142,10 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSkills();
   renderArticles();
   renderStack();
+  renderGitHubEvidence();
   initFilter();
+  initPortfolioAssistant();
+  initAnalyticsHooks();
   initTheme();
   initNav();
   initReveal();

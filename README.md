@@ -134,6 +134,21 @@ Almost everything you'll want to change lives in **`script.js`**:
 - **Live repo count** — the "Public repositories" stat auto-updates from the
   GitHub API (`initRepoCount`); the number in `index.html` is the offline fallback.
 
+- **Recruiter and technical views** — the page includes concise recruiter
+  highlights, a technical delivery-flow view, and a static GitHub evidence strip
+  built from the same verified project data.
+
+- **Ask My Portfolio** — this is intentionally deterministic local search, not a
+  fake AI endpoint. It searches the published `PROJECTS` data in the browser and
+  introduces no API keys or tracking IDs. A future RAG service can replace the
+  search function behind the same UI only when a real backend and privacy policy
+  are available.
+
+- **Privacy-conscious interaction hooks** — links can emit a
+  `portfolio:interaction` browser event (for example `cv-download`,
+  `github-click`, `linkedin-click`, and `contact-click`) without sending data
+  anywhere. Connect a consent-aware analytics provider later if required.
+
 Text that isn't project data (hero, about, experience timeline, education,
 certifications, stats banner, contact blurb, footer) lives directly in
 **`index.html`** as plain, commented HTML.
