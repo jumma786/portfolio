@@ -39,6 +39,13 @@ const PROJECTS = {
   ],
 
   ml: [
+    { name: 'Customer Feedback LoRA Fine-Tuning', highlight: 'LoRA fine-tuning for banking feedback classification with explicit PyTorch training and peft comparison.', tags: ['LoRA', 'PyTorch', 'NLP', 'Classification'], url: 'https://github.com/jumma786/customer-feedback-lora-finetuning' },
+    { name: 'Semantic Search Reranking', highlight: 'Lexical, dense and cross-encoder retrieval benchmarked on BEIR collections.', tags: ['Retrieval', 'RAG', 'BEIR', 'NLP'], url: 'https://github.com/jumma786/semantic-search-reranking' },
+    { name: 'Demand Forecast Neural Network', highlight: 'Neural-network demand forecast benchmarked honestly against ridge and gradient boosting.', tags: ['Neural network', 'Forecasting', 'Time series', 'sklearn'], url: 'https://github.com/jumma786/demand-forecast-neural-network' },
+    { name: 'Feedback Aspect Instruction Tuning', highlight: 'Aspect-level sentiment extraction from customer reviews via instruction-tuned LLM patterns.', tags: ['LLM', 'NLP', 'Sentiment', 'LoRA'], url: 'https://github.com/jumma786/feedback-aspect-instruction-tuning' },
+    { name: 'Transport Mode Choice Modelling', highlight: 'Discrete-choice travel-mode models using MNL and nested logit on Swissmetro data.', tags: ['Discrete choice', 'Transport', 'MNL', 'Econometrics'], url: 'https://github.com/jumma786/transport-mode-choice-modelling' },
+    { name: 'Machine Learning Classifier', highlight: 'Binary classification workflow with feature selection and stability analysis.', tags: ['Classification', 'Feature selection', 'sklearn'], url: 'https://github.com/jumma786/machine-learning-classifier' },
+    { name: 'FGeYZpENS9rGT5wu', highlight: 'Ordinal survey classification with feature selection and model-stability checks.', tags: ['Classification', 'Survey', 'Feature selection'], url: 'https://github.com/jumma786/FGeYZpENS9rGT5wu' },
     { name: 'Marketing Attribution — 16.5M Events', highlight: 'Markov removal-effect and Shapley attribution solved exactly · 108s run.', tags: ['Markov chains', 'Shapley', 'dbt', '16.5M events'], url: 'https://github.com/jumma786/marketing-attribution-modelling' },
     { name: 'Wikipedia Pageviews Anomaly Detection', highlight: 'Robust rolling median/MAD spike detection on high-volume streams.', tags: ['Anomaly detection', 'MAD', 'Streamlit'], url: 'https://github.com/jumma786/wikipedia-pageviews-anomaly' },
     { name: 'Workplace Churn Feature Engineering', highlight: 'Leakage-safe pipeline · AUC 0.820.', tags: ['sklearn', 'Feature engineering', 'AUC 0.820'], url: 'https://github.com/jumma786/workplace-churn-feature-engineering' },
@@ -57,6 +64,11 @@ const PROJECTS = {
   ],
 
   analytics: [
+    { name: 'Alteryx Supply Chain Operations Analytics', highlight: 'Alteryx workflow for supplier, route and inventory-risk decisions on a sample operations dataset.', tags: ['Alteryx', 'Supply chain', 'Operations', 'Analytics'], url: 'https://github.com/jumma786/alteryx-supply-chain-operations-analytics' },
+    { name: 'DNO Network Reliability Analytics', highlight: 'UK DNO reliability and customer-satisfaction analysis against Ofgem RIIO-ED2 targets.', tags: ['Utilities', 'Reliability', 'Ofgem', 'Analytics'], url: 'https://github.com/jumma786/dno-network-reliability-analytics' },
+    { name: 'Marketing Mix Modelling', highlight: 'Weekly media mix model with adstock, saturation and constrained optimisation.', tags: ['Marketing mix', 'Econometrics', 'Media', 'Forecasting'], url: 'https://github.com/jumma786/marketing-mix-modelling' },
+    { name: 'Real-World Marketing Mix Modelling', highlight: 'Observed-media MMM with holdout validation and model-implied ROAS expressed cautiously.', tags: ['Marketing mix', 'Holdout', 'Econometrics', 'Media'], url: 'https://github.com/jumma786/real-world-marketing-mix-modelling' },
+    { name: 'Water Demand Monte Carlo', highlight: 'Monte Carlo peak-demand risk analysis for UK winter demand using published energy data.', tags: ['Monte Carlo', 'Risk', 'Forecasting', 'Energy'], url: 'https://github.com/jumma786/water-demand-monte-carlo' },
     { name: 'Enterprise DWH Analytics', highlight: '6.36M financial transactions · fraud recall exposed at 0.19%.', tags: ['Kimball', 'Teradata', '6.36M rows'], url: 'https://github.com/jumma786/enterprise-dwh-analytics' },
     { name: 'Wealth KPI Engine', highlight: '20 tests · AUM, AUMA, NNM, fee yield and retention grounded in ONS + BoE public series.', tags: ['Wealth analytics', 'ONS', 'BoE', '20 tests'], url: 'https://github.com/jumma786/wealth-kpi-engine' },
     { name: 'UK BBSI Tax Reporting Pipeline', highlight: '34 tests · HMRC public statistics, exception queues and a £0.03 reconciliation residual.', tags: ['HMRC', 'Tax reporting', 'Reconciliation', '34 tests'], url: 'https://github.com/jumma786/uk-bbsi-tax-reporting-pipeline' },
@@ -107,6 +119,7 @@ const PROJECTS = {
   ],
 
   engineering: [
+    { name: 'Kafka Market Data Streaming', highlight: 'Binance trade replay into Kafka partitions and tumbling-window OHLCV bars with DLQ handling.', tags: ['Kafka', 'Streaming', 'Binance', 'Python'], url: 'https://github.com/jumma786/kafka-market-data-streaming' },
     { name: 'Teradata → Snowflake Rebuild', highlight: '6.36M-row warehouse migrated · DDL translation and load validation.', tags: ['Snowflake', 'Teradata', 'Migration'], url: 'https://github.com/jumma786/snowflake-dwh-rebuild' },
     { name: 'MLOps Infrastructure as Code', highlight: 'Terraform approval gate for Azure Container Apps with immutable image tags and OIDC.', tags: ['Terraform', 'Azure', 'GitHub Actions', 'IaC'], url: 'https://github.com/jumma786/mlops-iac-terraform' },
     { name: 'OpenMetadata Data Catalogue', highlight: 'Catalog and business glossary (MRR/ARR/NRR/GRR) over a real dataset.', tags: ['OpenMetadata', 'Governance', 'Lineage'], url: 'https://github.com/jumma786/data-cataloguing-openmetadata' },
@@ -135,6 +148,7 @@ const PROJECTS = {
     { name: 'Bulk File Renamer', highlight: 'Batch file renaming utility.', tags: ['Python', 'Utility'], url: 'https://github.com/jumma786/bulk-file-renamer-python' },
     { name: 'Python Email Sender', highlight: 'Programmatic email sender.', tags: ['Python', 'SMTP'], url: 'https://github.com/jumma786/python_email_sender' },
     { name: 'Python Application Form', highlight: 'Application form in Python.', tags: ['Python', 'Forms'], url: 'https://github.com/jumma786/python-application-form-' },
+    { name: 'Employee Salary System', highlight: 'Menu-driven payroll CLI with payslips and salary reporting.', tags: ['Python', 'Payroll', 'CLI'], url: 'https://github.com/jumma786/employee-salary-system' },
     { name: 'Wikipedia Company Web Scraping', highlight: 'Scraping company data from Wikipedia.', tags: ['Python', 'Scraping'], url: 'https://github.com/jumma786/wikipedia-company-web-scraping' },
     { name: 'Binary Search Algorithm', highlight: 'Binary search implementation.', tags: ['Python', 'Algorithms'], url: 'https://github.com/jumma786/binary_search_algorithm' },
     { name: 'Rock Paper Scissors Game', highlight: 'Rock–paper–scissors in Python.', tags: ['Python', 'Game'], url: 'https://github.com/jumma786/Rock-Paper-Scissors-Game-in-Python' },
@@ -147,7 +161,9 @@ const PROJECTS = {
     { name: 'S03 — Data Cleaning', highlight: 'Session 03: data cleaning & preprocessing.', tags: ['Coursework', 'Preprocessing'], url: 'https://github.com/jumma786/session03-data-cleaning-preprocessing' },
     { name: 'S04 — EDA & Visualisation', highlight: 'Session 04: EDA and visualisation.', tags: ['Coursework', 'EDA'], url: 'https://github.com/jumma786/session_04_eda_visualisation' },
     { name: 'S08 — Model Evaluation', highlight: 'Session 08: model evaluation & cross-validation.', tags: ['Coursework', 'Cross-validation'], url: 'https://github.com/jumma786/session-08-model-evaluation-cross-validation' },
+    { name: 'Lab 6', highlight: 'Coursework lab work in data science and model building.', tags: ['Coursework', 'Lab'], url: 'https://github.com/jumma786/lab6' },
     { name: 'Intro to GitHub', highlight: 'GitHub skills introduction.', tags: ['Coursework', 'Git'], url: 'https://github.com/jumma786/skills-introduction-to-github' },
+    { name: 'jumma.1', highlight: 'Personal repo stub for a quick profile / project placeholder.', tags: ['Personal', 'Profile'], url: 'https://github.com/jumma786/jumma.1' },
     { name: 'S12 — Neural Networks', highlight: 'Session 12: neural networks (private repo).', tags: ['Coursework', 'Deep learning'], private: true },
     { name: 'S13 — Backpropagation', highlight: 'Session 13: backpropagation (private repo).', tags: ['Coursework', 'Deep learning'], private: true },
     { name: 'S14 — Loss & Optimisers', highlight: 'Session 14: loss functions & optimisers (private repo).', tags: ['Coursework', 'Optimisation'], private: true },
@@ -535,20 +551,33 @@ function findProject(name) {
 --------------------------------------------------------------------------- */
 
 /** Build one standard card element from a project object. */
-function buildCard(p) {
+function buildCard(p, group = '') {
   const isPrivate = p.private || !p.url;
   const article = document.createElement('article');
   article.className = 'card';
 
   // Searchable text lives on the element so filtering is a simple string test.
-  article.dataset.search = [p.name, p.highlight, ...(p.tags || [])].join(' ').toLowerCase();
+  const groupLabels = {
+    mlops: 'machine learning mlops data engineering',
+    ml: 'machine learning data science',
+    analytics: 'data analysis business analytics financial analytics',
+    bi: 'power bi tableau dashboard data analysis',
+    sql: 'sql data analysis',
+    engineering: 'data engineering etl spark',
+    apps: 'python web app api',
+    utilities: 'python utility',
+    learning: 'coursework learning',
+  };
+  article.dataset.search = [p.name, p.highlight, ...(p.tags || []), groupLabels[group] || group]
+    .join(' ').toLowerCase();
+  article.dataset.projectName = p.name;
 
   const tags = (p.tags || []).map((t) => `<li>${esc(t)}</li>`).join('');
   const action = isPrivate
     ? `<span class="card__badge" aria-label="Private repository">
          <i class="fa-solid fa-lock" aria-hidden="true"></i> Private repo
        </span>`
-    : `<a class="card__link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">
+    : `<a class="card__link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" data-track="github-click">
          <i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub
        </a>`;
 
@@ -567,7 +596,7 @@ function renderProjects() {
     const grid = document.querySelector(`[data-grid="${key}"]`);
     if (!grid) return;
     const frag = document.createDocumentFragment();
-    list.forEach((p) => frag.appendChild(buildCard(p)));
+    list.forEach((p) => frag.appendChild(buildCard(p, key)));
     grid.appendChild(frag);
   });
 }
@@ -584,7 +613,7 @@ function renderCaseStudies() {
     const num = String(idx + 1).padStart(2, '0');
     const stack = (c.stack || []).map((t) => `<li>${esc(t)}</li>`).join('');
     const action = c.url
-      ? `<a class="case-card__link" href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">
+      ? `<a class="case-card__link" href="${esc(c.url)}" target="_blank" rel="noopener noreferrer" data-track="github-click">
            <i class="fa-brands fa-github" aria-hidden="true"></i> Read the code
            <i class="fa-solid fa-arrow-right case-card__arrow" aria-hidden="true"></i>
          </a>`
@@ -741,6 +770,82 @@ function renderStack() {
   `).join('');
 }
 
+/** Render a small, static GitHub evidence strip without adding API latency. */
+function renderGitHubEvidence() {
+  const host = document.getElementById('githubEvidence');
+  if (!host) return;
+  const featured = [
+    ['AI Data Analysis Agent', 'LangGraph · FastAPI · RAG', '133 tests'],
+    ['Teradata → Snowflake Rebuild', 'Snowflake · Teradata · SQL', '6.36M rows'],
+    ['PySpark UK Property Analytics', 'PySpark · Parquet · HM Land Registry', '5.5GB'],
+    ['Marketing Attribution — 16.5M Events', 'Markov chains · Shapley · dbt', '108s run'],
+  ];
+  host.innerHTML = featured.map(([name, stack, proof]) => {
+    const project = findProject(name);
+    if (!project || !project.url) return '';
+    return `<a class="github-evidence__item" href="${esc(project.url)}" target="_blank" rel="noopener noreferrer" data-track="github-click">
+      <span><strong>${esc(name)}</strong><small>${esc(stack)}</small></span>
+      <em>${esc(proof)}</em>
+    </a>`;
+  }).join('');
+}
+
+/** Keep the assistant deterministic: it searches the published project data only. */
+function initPortfolioAssistant() {
+  const input = document.getElementById('portfolioQuestion');
+  const ask = document.getElementById('portfolioAsk');
+  const answer = document.getElementById('portfolioAnswer');
+  if (!input || !ask || !answer) return;
+
+  const all = Object.values(PROJECTS).flat();
+  const search = (term) => {
+    const raw = term.trim().toLowerCase();
+    const aliases = [
+      ['power bi', 'power bi'],
+      ['snowflake', 'snowflake'],
+      ['sql', 'sql'],
+      ['python', 'python'],
+      ['etl', 'etl'],
+      ['large dataset', '16.5m'],
+      ['dataset size', '16.5m'],
+      ['machine learning', 'machine learning'],
+    ];
+    const q = aliases.find(([phrase]) => raw.includes(phrase))?.[1] || raw;
+    if (!q) return [];
+    const results = all.filter((p) => [p.name, p.highlight, ...(p.tags || [])].join(' ').toLowerCase().includes(q));
+    return results.slice(0, 6);
+  };
+
+  function render(term) {
+    const results = search(term);
+    if (!results.length) {
+      answer.innerHTML = `<span class="ask-answer__empty">No published project matches “${esc(term)}”. Try SQL, Python, Power BI, Snowflake, ETL or a dataset size.</span>`;
+      return;
+    }
+    answer.innerHTML = `<p class="ask-answer__summary">${results.length} matching project${results.length === 1 ? '' : 's'} from the portfolio data:</p>
+      <ul>${results.map((p) => `<li><a href="${esc(p.url || '#')}" ${p.url ? 'target="_blank" rel="noopener noreferrer" data-track="github-click"' : ''}>${esc(p.name)}</a><span>${esc(p.highlight)}</span></li>`).join('')}</ul>`;
+  }
+
+  const run = () => render(input.value);
+  ask.addEventListener('click', run);
+  input.addEventListener('keydown', (event) => { if (event.key === 'Enter') run(); });
+  document.querySelectorAll('[data-question]').forEach((button) => button.addEventListener('click', () => {
+    input.value = button.dataset.question;
+    run();
+  }));
+}
+
+/** Privacy-conscious analytics hook: emits no identifiers and has no provider. */
+function initAnalyticsHooks() {
+  document.addEventListener('click', (event) => {
+    const target = event.target.closest('[data-track]');
+    if (!target) return;
+    window.dispatchEvent(new CustomEvent('portfolio:interaction', {
+      detail: { action: target.dataset.track, path: window.location.pathname },
+    }));
+  });
+}
+
 /* ---------------------------------------------------------------------------
    4. SEARCH / FILTER  (project sections only)
 --------------------------------------------------------------------------- */
@@ -750,6 +855,7 @@ function initFilter() {
   const count = document.getElementById('filterCount');
   const noResults = document.getElementById('noResults');
   const noResultsClear = document.getElementById('noResultsClear');
+  const chips = Array.from(document.querySelectorAll('[data-filter]'));
   const cards = Array.from(document.querySelectorAll('.card-grid .card'));
   const sections = Array.from(document.querySelectorAll('[data-project-section]'));
 
@@ -777,6 +883,7 @@ function initFilter() {
     count.textContent = q ? `${visible} match${visible === 1 ? '' : 'es'}` : `${cards.length} projects`;
     clearBtn.hidden = !q;
     noResults.hidden = visible !== 0;
+    chips.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.filter.toLowerCase() === q));
   }
 
   function reset() {
@@ -788,8 +895,15 @@ function initFilter() {
   input.addEventListener('input', () => apply(input.value));
   clearBtn.addEventListener('click', reset);
   noResultsClear.addEventListener('click', reset);
+  chips.forEach((chip) => chip.addEventListener('click', () => {
+    input.value = chip.dataset.filter;
+    apply(input.value);
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
 
-  apply(''); // set the initial count
+  const initial = new URLSearchParams(window.location.search).get('filter') || '';
+  input.value = initial;
+  apply(initial); // set the initial count
 }
 
 /* ---------------------------------------------------------------------------
@@ -1028,7 +1142,10 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSkills();
   renderArticles();
   renderStack();
+  renderGitHubEvidence();
   initFilter();
+  initPortfolioAssistant();
+  initAnalyticsHooks();
   initTheme();
   initNav();
   initReveal();
