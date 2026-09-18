@@ -1973,3 +1973,17 @@ img { max-width: 100%; display: block; }
   .ask-input .btn { flex: 1; }
   .flow i { display: none; }
 }
+
+/* ---------- Research section ---------- */
+.research__lead {
+  max-width: 62ch;
+  margin: 0 0 2rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.research__foot {
+  margin: 2rem 0 0;
+  font-size: 0.92rem;
+  opacity: 0.8;
+}

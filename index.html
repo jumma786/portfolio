@@ -127,6 +127,7 @@
       <ul class="nav__menu" id="navMenu">
         <li><a href="#recruiter-view">Recruiter view</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
         <li><a href="#case-studies">Case studies</a></li>
         <li><a href="#technical-view">Technical view</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -427,6 +428,98 @@
             </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== Research (interstitial: unnumbered in the running sequence) ===== -->
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Research</p>
+        <h2 class="section__title" id="research-title">Where the work is heading.</h2>
+        <p class="section__sub">
+          I have applied for a PhD in Computer Science at the University of Gloucestershire:
+          explainable AI for mobility-risk prediction from wearable sensor data. Whether
+          movement data from a worn sensor can say who is at risk of falling &mdash; and whether
+          the model&rsquo;s reasoning can be made legible enough for a clinician to actually
+          act on.
+        </p>
+      </div>
+
+      <div class="research reveal">
+        <p class="research__lead">
+          The thread back through the work below is the same one running through everything
+          else on this site. The evaluation matters more than the model. Leakage designed out
+          rather than discovered late. Metrics chosen for the shape of the outcome. Baselines
+          allowed to win.
+        </p>
+
+        <div class="card-grid">
+
+          <article class="card">
+            <h4 class="card__title">Gait Analysis Using Machine Learning Classifiers</h4>
+            <p class="card__highlight">
+              MSc dissertation. 3.0M rows of marker-based gait data &mdash; 21 participants,
+              25,306 steps, 12 walking speeds. The best model hit 0.99. Working out what that
+              number did and did not prove is what turned into a PhD proposal.
+            </p>
+            <ul class="card__tags" aria-label="Tech stack">
+              <li>Python</li>
+              <li>scikit-learn</li>
+              <li>PCA</li>
+              <li>Motion capture</li>
+            </ul>
+            <span class="card__badge" aria-label="MSc dissertation">
+              <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> MSc, QMUL &mdash; Merit
+            </span>
+          </article>
+
+          <article class="card">
+            <h4 class="card__title">uk-energy-forecasting</h4>
+            <p class="card__highlight">
+              National electricity demand from weather, calendar effects and generation data,
+              with SHAP used to interrogate what the model actually leans on rather than
+              assuming it. Error analysis, dashboard, deployed with CI.
+            </p>
+            <ul class="card__tags" aria-label="Tech stack">
+              <li>XGBoost</li>
+              <li>SHAP</li>
+              <li>Time series</li>
+              <li>CI</li>
+            </ul>
+            <a class="card__link" href="https://github.com/jumma786/uk-energy-forecasting"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub
+            </a>
+          </article>
+
+          <article class="card">
+            <h4 class="card__title">demand-forecast-neural-network</h4>
+            <p class="card__highlight">
+              A neural network benchmarked against ridge, gradient boosting and a seasonal
+              baseline on daily demand. The linear model won. Reported as such &mdash; which is
+              the whole point, and the position the doctoral proposal argues from.
+            </p>
+            <ul class="card__tags" aria-label="Tech stack">
+              <li>Neural network</li>
+              <li>Ridge</li>
+              <li>Gradient boosting</li>
+              <li>Honest baselines</li>
+            </ul>
+            <a class="card__link"
+               href="https://github.com/jumma786/demand-forecast-neural-network"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github" aria-hidden="true"></i> View on GitHub
+            </a>
+          </article>
+
+        </div>
+
+        <p class="research__foot">
+          Research proposal, academic CV and portfolio summary available on request &mdash;
+          <a href="mailto:jummamohammad477@gmail.com">jummamohammad477@gmail.com</a>.
+          ORCID <a href="https://orcid.org/0009-0001-4001-674X" target="_blank"
+          rel="noopener noreferrer">0009-0001-4001-674X</a>.
+        </p>
       </div>
     </section>
 
